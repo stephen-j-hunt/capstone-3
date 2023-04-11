@@ -6,27 +6,17 @@
 
       </header>
     <div id="nav">
-<<<<<<< HEAD
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>
       <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token === ''">Login</router-link>
        <router-link v-bind:to="{ name: 'my-account' }" v-if="$store.state.token == ''">My Account</router-link>
         <router-link v-bind:to="{ name: 'my-movies' }" v-if="$store.state.token == ''">My Movies</router-link>
         <router-link v-bind:to="{ name: 'browse-movies' }" v-if="$store.state.token == ''">Browse Movies</router-link>
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token !== ''">Logout</router-link>
-=======
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-        >Logout</router-link
-      >
->>>>>>> 7aea85028fff5671cc7cd29ef5d845c893a2e241
     </div>
     <router-view/>
   </div>
 </template>
 
-<<<<<<< HEAD
 <style scoped>
   
  
@@ -66,5 +56,3 @@
 
 
 </style>
-=======
->>>>>>> 7aea85028fff5671cc7cd29ef5d845c893a2e241
