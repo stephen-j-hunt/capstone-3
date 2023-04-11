@@ -5,6 +5,9 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import MyAccount from '../views/MyAccount.vue'
+import MyMovies from '../views/MyMovies.vue'
+import BrowseMovies from '../views/BrowseMovies.vue'
 
 Vue.use(Router)
 
@@ -49,6 +52,30 @@ const router = new Router({
       path: "/register",
       name: "register",
       component: Register,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/my-account",
+      name: "my-account",
+      component: MyAccount,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/my-movies",
+      name: "my-movies",
+      component: MyMovies,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/browse-movies",
+      name: "browse-movies",
+      component: BrowseMovies,
       meta: {
         requiresAuth: false
       }
