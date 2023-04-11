@@ -3,9 +3,11 @@
     <Header/>
     <div class="layout-container">
       <Navbar/>
+      <div class="main-cont">
       <main>
-        <slot></slot>
+        <slot name="Main-view"></slot>
       </main>
+      </div>
     </div>
   </div>
 </template>
@@ -27,14 +29,21 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100%;
+  
 }
 
 .layout-container {
   display: flex;
+  /* justify-content: space-between; */
+  /* justify-content: center; */
   flex: 1;
 }
 
-main {
+.main-cont {
+  display: flex;
+  justify-content: center;
   flex: 1;
 }
+
+
 </style>
