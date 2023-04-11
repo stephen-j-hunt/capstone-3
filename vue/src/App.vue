@@ -19,10 +19,7 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  /* display: flex;
-  min-height: 100vh; */
-}
+
 
 
 

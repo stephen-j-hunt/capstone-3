@@ -16,9 +16,11 @@
         <label for="password">Password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
+      <div class="submit-button">
       <button type="submit">Sign in</button>
+      </div>
       <p>
-      <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
+      <router-link :to="{ name: 'register' }">Register</router-link></p>
     </form>
   </div>
 </template>
@@ -67,5 +69,11 @@ export default {
 }
 label {
   margin-right: 0.5rem;
+}
+p{
+  text-align:center
+}
+.submit-button{
+  text-align: center;
 }
 </style>

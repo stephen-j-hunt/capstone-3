@@ -26,6 +26,8 @@ export default {
 
 <style scoped>
 .home {
-  display: block;
+  text-align: center;
+  
 }
+
 </style>

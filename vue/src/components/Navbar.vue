@@ -14,14 +14,16 @@
 <style scoped>
 #nav {
   display: flex;
+  
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  /* justify-content: space-evenly; */
   background-color: #d80000;
   border-right: 1px solid #000000;
   padding: 1rem;
-  min-height: 100%;
-  width: 100px;
+  height: 150vh;
+  width: 7%;
 }
 
 .nav-link {

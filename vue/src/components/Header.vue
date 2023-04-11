@@ -9,9 +9,10 @@
 header {
   background-color: #d80000;
   padding: 0rem;
-  z-index: 50;
   display: flex;
   align-items: center;
+  /* position: fixed; */
+  /* margin-left: 9%; */
 }
 
 img {
