@@ -14,7 +14,6 @@
 <style scoped>
 #nav {
   display: flex;
-  
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
@@ -22,10 +21,13 @@
   background-color: #d80000;
   border-right: 1px solid #000000;
   padding: 1rem;
-  height: 150vh;
-  width: 7%;
+ min-height: calc(100% - 135px); /* Subtract the header height */
+  width: 200px;
+  box-sizing: border-box; /* Add this to include the padding and border in the total width */
+  position: fixed; /* Add this to fix the navbar position */
+  top: 135px; /* Adjust this value according to your header height */
+  left: 0; /* Add this to stick the navbar to the left edge of the screen */
 }
-
 .nav-link {
   text-decoration: none;
   color: inherit;

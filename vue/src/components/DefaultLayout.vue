@@ -40,11 +40,12 @@ export default {
 }
 
 .main-cont {
-  margin-top: 2rem;
+  margin-top: 8rem;
   display: flex;
   justify-content: center;
   flex: 1;
   width: auto;
+  overflow: hidden;
 }
 
 
