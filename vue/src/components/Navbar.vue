@@ -17,10 +17,28 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  background-color: #f8f9fa;
-  border-right: 1px solid #dee2e6;
+  background-color: #d80000;
+  border-right: 1px solid #000000;
   padding: 1rem;
   min-height: 100%;
-  width: 200px;
+  width: 100px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+.nav-link:hover {
+  background-color: #f5f5f580;
+  color: #1c1c1d;
+}
+
+.router-link-exact-active {
+  font-weight: bold;
+  color: #000000; /* active link color */
 }
 </style>
+

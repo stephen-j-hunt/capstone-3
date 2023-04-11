@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <DefaultLayout>
+      <template v-slot:Main-view> 
       <router-view/>
+      </template>
     </DefaultLayout>
   </div>
 </template>
@@ -18,9 +20,13 @@ export default {
 
 <style scoped>
 #app {
-  display: flex;
-  min-height: 100vh;
+  /* display: flex;
+  min-height: 100vh; */
 }
+
+
+
+
 </style>
 
    
