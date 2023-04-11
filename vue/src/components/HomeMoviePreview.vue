@@ -1,21 +1,22 @@
 <template>
-  <div>
-    <div class="home-movie-preview">
-      <img
-        src="../assets/the-super-mario-bros-movie-movie-poster-md.jpg"
-        alt=""
-      />
-      <img src="../assets/john-wick-4.jpg" alt="" />
-      <img src="../assets/dnd-movie.jpg" alt="" />
-      <img src="../assets/air-movie-poster-md.jpg" alt="" />
-      <img src="../assets/air-movie-poster-md.jpg" alt="" />
-      <img src="../assets/air-movie-poster-md.jpg" alt="" />
-    </div>
+  <div class="home-movie-preview">
+    <movie-card v-for="movie in movies" :key="movie.id" v-bind:movie="movie" />
   </div>
 </template>
 
 <script>
-export default {};
+import MovieCard from "./MovieCard.vue";
+
+export default {
+  data() {
+    return {
+      movies: [],
+    };
+  },
+  components: {
+    MovieCard,
+  },
+};
 </script>
 
 <style scoped>
@@ -26,6 +27,6 @@ export default {};
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 </style>
