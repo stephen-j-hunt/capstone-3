@@ -20,6 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
+    genres: [],
     movies: []
   },
   getters: {
@@ -28,7 +29,9 @@ export default new Vuex.Store({
       const shuffled = state.movies.sort(() => 0.5 - Math.random());
       // return the first 5 items
       return shuffled.slice(0, 5);
-    }},
+    }
+  },
+
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
@@ -46,9 +49,11 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    SET_MOVIES(state, movies){
+    SET_MOVIES(state, movies) {
       state.movies = movies;
-
-    }
+    },
+    SET_GENRES(state, genres) {
+      state.genres = genres;
+    },
   }
 })

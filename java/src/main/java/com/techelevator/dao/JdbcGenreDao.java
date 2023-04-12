@@ -49,6 +49,12 @@ public class JdbcGenreDao implements GenreDao{
         return genres;
     }
 
+    @Override
+    public boolean create(int userId, int genreId) {
+        String insertSql = "insert into user_genre (user_id, genre_id) values (?,?)";
+        return jdbcTemplate.update(insertSql, userId, genreId) == 1;
+    }
+
     private Genre mapRowToGenre(SqlRowSet rs){
         final int genreId = rs.getInt("genre_id");
         final String genreName = rs.getString("genre_name");

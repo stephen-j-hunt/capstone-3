@@ -4,10 +4,9 @@ import com.techelevator.dao.GenreDao;
 import com.techelevator.dao.MovieDao;
 import com.techelevator.model.Genre;
 import com.techelevator.model.Movie;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import com.techelevator.model.UserGenreDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,6 +34,15 @@ public class MovieController {
     public List<Genre> getGenreByUserId(@PathVariable int id){
         return genreDao.getGenreByUserId(id);
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/genres")
+    public void addGenresToPref(@RequestBody UserGenreDto userGenreDto) {
+        genreDao.create(userGenreDto.getUserId(), userGenreDto.getGenreId());
+    }
+
+
+
 
 
 }

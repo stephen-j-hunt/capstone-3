@@ -1,32 +1,83 @@
 <template>
   <div>
     <label for="genres">Select genres:</label>
-    <select multiple v-model="selectedGenres" id="genres">
-      <option v-for="genre in genres" :key="genre.id" :value="genre.id">
-        {{ genre.name }}
-      </option>
-    </select>
+
+    <table>
+      <tr>
+        <th>Genre Name:</th>
+      </tr>
+      <tbody>
+        <tr v-for="genre in $store.state.genres" :key="genre.id">
+          <td>
+            <label for="genreId">{{ genre.genreName }}</label>
+            <input
+              type="checkbox"
+              name="genreId"
+              :value="genre.id"
+              v-model="newGenres"
+              :checked="newGenres.includes(genre.id)"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="submit" @click="pushSelectedGenres()">Add genres</button>
+    <div>
+      <h3>User Preferences</h3>
+      <ul>
+        <li v-for="genre in selectedGenres" :key="genre.id">
+          {{ genre.genreName }}
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
 import MovieService from "../services/MovieService";
 export default {
+  created() {
+    MovieService.getAllGenres().then((response) => {
+      console.log(`loaded ${response.data.length} genres`);
+      this.$store.commit("SET_GENRES", response.data);
+    });
+    this.getUserPref(this.currentUserId);
+  },
   data() {
     return {
-      genres: [],
       selectedGenres: [],
+      newGenres: [],
     };
   },
-  mounted() {
-    // Here you would fetch the genres from your database and set them to the `genres` data property
-    // For example, using axios:
-    MovieService.get("/genres")
-      .then((response) => {
-        this.genres = response.data;
-      })
-      .catch((error) => {
-        console.error(error);
+  computed: {
+    currentUserId() {
+      return this.$store.state.user.id;
+    },
+  },
+  methods: {
+    getUserPref(id) {
+      MovieService.getGenreByUserId(id).then((response) => {
+        this.selectedGenres = response.data;
       });
+    },
+    // selectGenres(gId) {
+    //   const userGenreDto = { userId: this.currentUserId, genreId: gId };
+    //   this.newGenres.push(userGenreDto);
+    // },
+    pushSelectedGenres() {
+      this.newGenres.forEach((selectedId) => {
+        const userGenreDto = {
+          userId: this.currentUserId,
+          genreId: selectedId,
+        };
+        MovieService.addGenreToPref(userGenreDto).then((response) => {
+          if (response.status === 201) {
+            alert("added genre");
+            this.getUserPref(this.currentUserId);
+          }
+        });
+        this.newGenres = [];
+      });
+    },
   },
 };
 </script>
