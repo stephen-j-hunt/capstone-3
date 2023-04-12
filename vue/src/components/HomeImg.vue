@@ -1,6 +1,6 @@
 <template>
   <div class="Home-img">
-    <img src="../assets/movie-collage-wallpaper-preview.jpg" alt="" />
+    <!-- <img src="../assets/movie-collage2.jpg" alt="" /> -->
   </div>
 </template>
 
@@ -11,7 +11,9 @@ export default {};
 <style scoped>
 .Home-img {
   padding: 10px;
-  display: block;
+  height: 50vh;
   text-align: center;
+  /* background-image: url("../assets/movie-collage2.jpg");
+  background-size: cover; */
 }
 </style>
