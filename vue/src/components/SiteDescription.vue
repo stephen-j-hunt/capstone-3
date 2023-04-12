@@ -1,9 +1,7 @@
 <template>
   <div class="site-description">
     <h2>Elevate Your Movie Taste</h2>
-    <p>
-      This is a site that recommends movies to you based on your favorite genre
-    </p>
+    <p>We will take your current movie</p>
   </div>
 </template>
 
@@ -14,10 +12,12 @@ export default {};
 <style scoped>
 .site-description {
   border: 3px solid gold;
+  font-size: 25px;
   text-align: center;
   margin: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 p {
-  font-size: large;
+  font-size: 20px;
 }
 </style>

@@ -1,4 +1,4 @@
-npm<template>
+<template>
   <div class="home-movie-preview">
     <img
       v-bind:src="movie.poster"
@@ -32,7 +32,7 @@ export default {
   /* border: 3px solid; */
   /* overflow-x:auto; */
   height: 250px;
-
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   gap: 10px;
 
@@ -46,7 +46,7 @@ export default {
    align-items: center; */
   height: 90%;
 
-  border: 5px solid;
+  border: 2px solid;
   gap: 5px;
 }
 </style>
