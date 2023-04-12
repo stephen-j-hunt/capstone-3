@@ -9,7 +9,8 @@ export default {};
 </script>
 
 <style scoped>
-.Home-img {
+img {
+  width: 100%;
   border: 3px solid;
   padding: 10px;
   display: block;

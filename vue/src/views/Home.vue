@@ -1,10 +1,8 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h1>Welcome to Movie Elevator</h1>
     <home-img />
     <site-description />
-    <div></div>
     <home-movie-preview />
     <h4>To get personalized content, Register an account now!</h4>
   </div>
@@ -27,7 +25,5 @@ export default {
 <style scoped>
 .home {
   text-align: center;
-  
 }
-
 </style>
