@@ -52,5 +52,7 @@ insert into movie_genre(movie_id, genre_id) values ((select id from movies where
 insert into movie_genre(movie_id, genre_id) values ((select id from movies where title = 'Scandal (Shubun)'), (select genre_id from genre where genre_name = 'drama'));
 --
 --
+insert into user_genre (user_id, genre_id) values((select user_id from users where username='user'),(select genre_id from genre where genre_name = 'comedy'));
+insert into user_genre (user_id, genre_id) values((select user_id from users where username='user'),(select genre_id from genre where genre_name = 'crime'));
 
 COMMIT TRANSACTION;
