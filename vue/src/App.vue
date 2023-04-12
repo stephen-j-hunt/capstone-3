@@ -1,29 +1,57 @@
 <template>
   <div id="app">
-    <DefaultLayout>
-      <template v-slot:Main-view> 
-      <router-view/>
-      </template>
-    </DefaultLayout>
+    <page-header />
+    <nav-bar />
+    <div class="main-content">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
-import DefaultLayout from './components/DefaultLayout.vue';
+import navBar from "./components/Navbar.vue";
+import pageHeader from "./components/Header.vue";
 
 export default {
   components: {
-    DefaultLayout,
+    pageHeader,
+    navBar,
   },
 };
 </script>
 
-<style scoped>
+<style>
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+}
 
-
-
-
-
+#app {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 150px 1fr;
+  grid-template-areas:
+    "header header"
+    "navbar main";
+}
+Header {
+  grid-area: header;
+}
+Navbar {
+  grid-area: navbar;
+}
+.main-content {
+  grid-area: main;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  background-color: black;
+}
 </style>
 
    

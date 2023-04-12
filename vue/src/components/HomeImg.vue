@@ -10,7 +10,6 @@ export default {};
 
 <style scoped>
 .Home-img {
-  border: 3px solid;
   padding: 10px;
   display: block;
   text-align: center;

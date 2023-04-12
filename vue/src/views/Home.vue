@@ -1,12 +1,16 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <h1>Welcome to Movie Elevator!</h1>
+    <!-- <p>You must be authenticated to see this</p> -->
     <home-img />
     <site-description />
     <div></div>
     <home-movie-preview />
-    <h4>To get personalized content, Register an account now!</h4>
+    <h4>
+      <router-link class="reg-link" :to="{ name: 'register' }">
+        To get personalized content, Register an account now!
+      </router-link>
+    </h4>
   </div>
 </template>
 
@@ -27,7 +31,9 @@ export default {
 <style scoped>
 .home {
   text-align: center;
-  
 }
-
+.reg-link {
+  color: gold;
+  font-size: 18px;
+}
 </style>
