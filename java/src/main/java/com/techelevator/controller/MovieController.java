@@ -36,6 +36,14 @@ public class MovieController {
         return this.userDao.getUserById(id);
     }
 
+    @GetMapping("/users/{id}/preferences")
+    public List<Genre> getUserPrefs(@PathVariable int id) {return this.userDao.getUserPrefs(id);}
+
+    @DeleteMapping("/users/{id}/preferences")
+    public void clearUserPrefs(@PathVariable int userId){
+        this.userDao.clearUserPrefs(userId);
+    }
+
     @GetMapping("/genres")
     public List<Genre> getAllGenres() {
         return this.genreDao.getAllGenres();
