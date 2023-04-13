@@ -43,6 +43,10 @@ public class MovieController {
     public void clearUserPrefs(@PathVariable int userId){
         this.userDao.clearUserPrefs(userId);
     }
+    @PostMapping("/users/{id}/preferences")
+    public void addUserPrefs(@PathVariable int userId, @PathVariable int genreId){
+        this.userDao.addUserPrefs(userId, genreId);
+    }
 
     @GetMapping("/genres")
     public List<Genre> getAllGenres() {
@@ -54,11 +58,11 @@ public class MovieController {
         return genreDao.getGenreByUserId(id);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/genres")
-    public void addGenresToPref(@RequestBody UserGenreDto userGenreDto) {
-        genreDao.create(userGenreDto.getUserId(), userGenreDto.getGenreId());
-    }
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @PostMapping("/genres")
+//    public void addGenresToPref(@RequestBody UserGenreDto userGenreDto) {
+//        genreDao.create(userGenreDto.getUserId(), userGenreDto.getGenreId());
+//    }
 
 
 

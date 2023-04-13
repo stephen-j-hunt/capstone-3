@@ -69,6 +69,13 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
+    public void addUserPrefs(int userId, int genreId) {
+        String sql = "INSERT INTO user_genre(user_id, genre_id)\n" +
+                "VALUES (?, ?);";
+        jdbcTemplate.update(sql, userId, genreId);
+    }
+
+    @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
         String sql = "select * from users";

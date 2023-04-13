@@ -15,6 +15,8 @@ public interface UserDao {
 
     void clearUserPrefs(int userId);
 
+    void addUserPrefs(int userId, int genreId);
+
     User findByUsername(String username);
 
     int findIdByUsername(String username);

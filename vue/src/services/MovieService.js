@@ -18,6 +18,14 @@ export default {
 
   addGenreToPref(userGenreDto) {
     return axios.post(`/genres`, userGenreDto);
+  },
+
+  clearUserPrefs(id) {
+    return axios.delete(`/users/${id}/preferences`);
+  },
+
+  addUserPrefs(id) {
+    return axios.post(`/users/${id}/preferences`);
   }
   
 
