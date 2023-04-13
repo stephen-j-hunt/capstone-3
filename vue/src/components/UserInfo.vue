@@ -1,13 +1,27 @@
 <template>
   <div>
-    <h1>Welcome {{ user.username }}</h1>
+    <h1>Welcome {{ getUser.username }}!</h1>
   </div>
 </template>
 
 <script>
-// import MovieService from '../services/MovieService'
+import MovieService from '../services/MovieService'
 
-export default {};
+export default {
+  data() {
+    return {}
+  },
+  computed: {
+    getUser(){  
+      return this.$store.getters.getUser;
+    }
+  },
+   created() {
+    MovieService.getUserById(this.getUser.id).then((response) => {
+      this.$store.commit("SET_USER", response.data);
+    });
+  }
+};
 </script>
 
 <style>
