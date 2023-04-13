@@ -7,8 +7,9 @@
       <h4>{{ movie.title }}</h4>
     </div>
     <div class="card-btns">
-      <button>Like</button>
+      <button>Favorite</button>
       <button>Dislike</button>
+      <button title= "Add to Watchlist">+</button>
     </div>
   </div>
 </template>
@@ -21,6 +22,7 @@ export default {
 </script>
 
 <style scoped>
+
 div.card {
   border: 3px gold solid;
   padding-top: 10px;

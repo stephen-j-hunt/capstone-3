@@ -1,10 +1,14 @@
 <template>
+
+<div>
+  <h2>Genre Name</h2>
   <div class="movie-cards">
     <movie-card
-      v-for="movie in filteredMovies"
+      v-for="movie in filteredMoviesByGenre"
       :key="movie.id"
       v-bind:movie="movie"
     />
+  </div>
   </div>
 </template>
 
@@ -17,7 +21,7 @@ export default {
     MovieCard,
   },
   computed: {
-    filteredMovies() {
+    filteredMoviesByGenre() {
       const moviesFilter = this.$store.state.movies;
       return moviesFilter;
     },
@@ -26,6 +30,8 @@ export default {
     MovieService.getAll().then((response) => {
       this.$store.commit("SET_MOVIES", response.data);
     });
+   
+    
   },
 };
 </script>
@@ -36,6 +42,10 @@ export default {
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+h2{
+  text-align: center;
 }
 </style>
 
