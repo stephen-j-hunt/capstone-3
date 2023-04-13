@@ -15,6 +15,7 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private Preferences preferences;
 
    public User() { }
 
@@ -64,6 +65,14 @@ public class User {
 
    public void setAuthorities(Set<Authority> authorities) {
       this.authorities = authorities;
+   }
+
+   public Preferences getPreferences() {
+      return preferences;
+   }
+
+   public void setPreferences(Preferences preferences) {
+      this.preferences = preferences;
    }
 
    public void setAuthorities(String authorities) {

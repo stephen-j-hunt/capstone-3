@@ -1,10 +1,12 @@
 package com.techelevator.dao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
 import com.techelevator.model.Genre;
+import com.techelevator.model.Preferences;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -51,28 +53,35 @@ public class JdbcUserDao implements UserDao {
     @Override
     public List<Genre> getUserPrefs(int userId) {
         List<Genre> userPrefs = new ArrayList<>();
-        String sql = "SELECT genre_id FROM user_genre WHERE user_id=?;";
+        String sql = "SELECT genre.genre_id, genre_name \n" +
+                "FROM user_genre \n" +
+                "\tJOIN genre ON genre.genre_id = user_genre.genre_id \n" +
+                "WHERE user_id=?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()){
-            Genre genre = mapRowToGenre(results);
+            Genre genre = new Genre();
+            genre.setId(results.getInt("genre_id"));
+            genre.setGenreName(results.getString("genre_name"));
             userPrefs.add(genre);
         }
         return userPrefs;
     }
 
+
+
     @Override
-    public void clearUserPrefs(int userId) {
-        String sql = "DELETE *\n" +
-                "FROM user_genre\n" +
-                "WHERE user_id = ?\n";
-       jdbcTemplate.update(sql,userId);
+    public void clearUserPrefs(int userId, int genreId) {
+        String sql = "DELETE FROM user_genre WHERE user_id = ? AND genre_id = ?; ";
+        jdbcTemplate.update(sql, userId, genreId);
     }
 
     @Override
-    public void addUserPrefs(int userId, int genreId) {
-        String sql = "INSERT INTO user_genre(user_id, genre_id)\n" +
-                "VALUES (?, ?);";
-        jdbcTemplate.update(sql, userId, genreId);
+    public void addUserPreferences(int userId, Preferences preferences) {
+
+        String sql = "INSERT INTO user_genre WHERE user_id = ? AND genre_id = ?; ";
+        for(Genre g : preferences.getGenres()) {
+            jdbcTemplate.update(sql, userId, g.getId());
+        }
     }
 
     @Override
@@ -122,11 +131,4 @@ public class JdbcUserDao implements UserDao {
     }
 
 
-//might move/delete this later
-    private Genre mapRowToGenre(SqlRowSet rs){
-        final int genreId = rs.getInt("genre_id");
-        final String genreName = rs.getString("genre_name");
-        final Genre genre = new Genre(genreId, genreName);
-        return genre;
-    }
 }

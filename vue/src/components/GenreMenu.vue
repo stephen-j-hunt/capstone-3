@@ -56,7 +56,7 @@ export default {
   methods: {
     getUserPref(id) {
       MovieService.getGenreByUserId(id).then((response) => {
-        this.selectedGenres = response.data.map(g => g.id);
+        this.selectedGenres = response.data.genres.map(g => g.id);
       });
     },
     selectGenres(gId) {

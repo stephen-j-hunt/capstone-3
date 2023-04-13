@@ -10,7 +10,6 @@ public interface GenreDao {
 
     List<Genre> getGenreByUserId(int id);
 
-boolean create(int userId, int genreId);
-
+    boolean create(int userId, int genreId);
 
 }

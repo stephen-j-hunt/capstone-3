@@ -3,10 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.GenreDao;
 import com.techelevator.dao.MovieDao;
 import com.techelevator.dao.UserDao;
-import com.techelevator.model.Genre;
-import com.techelevator.model.Movie;
-import com.techelevator.model.User;
-import com.techelevator.model.UserGenreDto;
+import com.techelevator.model.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,36 +14,17 @@ import java.util.List;
 public class MovieController {
     private final MovieDao movieDao;
     private final GenreDao genreDao;
-    private final UserDao userDao;
 
-    public MovieController(MovieDao movieDao, GenreDao genreDao, UserDao userDao) {
+
+    public MovieController(MovieDao movieDao, GenreDao genreDao) {
         this.movieDao = movieDao;
         this.genreDao= genreDao;
-        this.userDao = userDao;
+
     }
 
     @GetMapping("/movies")
     public List<Movie> getAll() {return this.movieDao.getAll();}
 
-    @GetMapping("/users")
-    public List<User> findAll() {return this.userDao.findAll();}
-
-    @GetMapping("/users/{id}")
-    public User getUserById(@PathVariable int id){
-        return this.userDao.getUserById(id);
-    }
-
-    @GetMapping("/users/{id}/preferences")
-    public List<Genre> getUserPrefs(@PathVariable int id) {return this.userDao.getUserPrefs(id);}
-
-    @DeleteMapping("/users/{id}/preferences")
-    public void clearUserPrefs(@PathVariable int userId){
-        this.userDao.clearUserPrefs(userId);
-    }
-    @PostMapping("/users/{id}/preferences")
-    public void addUserPrefs(@PathVariable int userId, @PathVariable int genreId){
-        this.userDao.addUserPrefs(userId, genreId);
-    }
 
     @GetMapping("/genres")
     public List<Genre> getAllGenres() {
@@ -58,11 +36,7 @@ public class MovieController {
         return genreDao.getGenreByUserId(id);
     }
 
-//    @ResponseStatus(HttpStatus.CREATED)
-//    @PostMapping("/genres")
-//    public void addGenresToPref(@RequestBody UserGenreDto userGenreDto) {
-//        genreDao.create(userGenreDto.getUserId(), userGenreDto.getGenreId());
-//    }
+
 
 
 
