@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export default {
-  // getUsername() {
-  //   return axios.get('/users');
-  // },
+   getUserById(id) {
+     return axios.get(`/users/${id}`);
+   },
 
   getAll() {
     return axios.get('/movies');
@@ -19,6 +19,7 @@ export default {
   addGenreToPref(userGenreDto) {
     return axios.post(`/genres`, userGenreDto);
   }
+  
 
 
 }

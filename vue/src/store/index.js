@@ -21,7 +21,10 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     genres: [],
-    movies: []
+    movies: [],
+    userPrefs: {
+      genres: []
+    }
   },
   getters: {
     getRandomMovies: state => {
@@ -29,6 +32,13 @@ export default new Vuex.Store({
       const shuffled = state.movies.sort(() => 0.5 - Math.random());
       // return the first 5 items
       return shuffled.slice(0, 5);
+    },
+    getUser: state => {
+      return state.user;
+    },
+
+    getUserPrefs: state => {
+      return state.userPrefs;
     }
   },
 
@@ -55,5 +65,17 @@ export default new Vuex.Store({
     SET_GENRES(state, genres) {
       state.genres = genres;
     },
+
+    SET_PREFERRED_GENRES(state, userPrefs) {
+      state.userPrefs = userPrefs; 
+    },
+    ADD_PREFERRED_GENRES(state, payload){
+      state.userPrefs.push(payload)
+    },
+    REMOVE_GENRE(state, genreId) {
+      state.userPrefs.filter((genre) => {
+        genre.id !== genreId
+      });
+    }
   }
 })

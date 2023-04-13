@@ -14,14 +14,14 @@
               type="checkbox"
               name="genreId"
               :value="genre.id"
-              v-model="newGenres"
-              :checked="newGenres.includes(genre.id)"
+              v-model="selectedGenres"
+              
             />
           </td>
         </tr>
       </tbody>
     </table>
-    <button type="submit" @click="pushSelectedGenres()">Add genres</button>
+    <button type="submit" @click="pushSelectedGenres()">Add genres</button> 
     <div>
       <h3>User Preferences</h3>
       <ul>
@@ -29,7 +29,7 @@
           {{ genre.genreName }}
         </li>
       </ul>
-    </div>
+    </div> 
   </div>
 </template>
 <script>
@@ -56,13 +56,13 @@ export default {
   methods: {
     getUserPref(id) {
       MovieService.getGenreByUserId(id).then((response) => {
-        this.selectedGenres = response.data;
+        this.selectedGenres = response.data.map(g => g.id);
       });
     },
-    // selectGenres(gId) {
-    //   const userGenreDto = { userId: this.currentUserId, genreId: gId };
-    //   this.newGenres.push(userGenreDto);
-    // },
+    selectGenres(gId) {
+      const userGenreDto = { userId: this.currentUserId, genreId: gId };
+      this.newGenres.push(userGenreDto);
+    },
     pushSelectedGenres() {
       this.newGenres.forEach((selectedId) => {
         const userGenreDto = {
@@ -73,9 +73,9 @@ export default {
           if (response.status === 201) {
             alert("added genre");
             this.getUserPref(this.currentUserId);
+            this.$store.commit("SET_PREFERRED_GENRES", this.selectedGenres)
           }
         });
-        this.newGenres = [];
       });
     },
   },
