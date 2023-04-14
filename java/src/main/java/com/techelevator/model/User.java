@@ -16,6 +16,7 @@ public class User {
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
    private Preferences preferences;
+   //change this to int[] preferences
 
    public User() { }
 

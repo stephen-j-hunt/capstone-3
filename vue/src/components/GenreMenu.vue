@@ -9,27 +9,20 @@
       <tbody>
         <tr v-for="genre in $store.state.genres" :key="genre.id">
           <td>
-            <label for="genreId">{{ genre.genreName }}</label>
+            {{ genre.genreName }}
+          </td>
+          <td>
             <input
               type="checkbox"
               name="genreId"
               :value="genre.id"
-              v-model="selectedGenres"
-              
+              v-model="$store.state.user.preferences"
             />
           </td>
         </tr>
       </tbody>
     </table>
-    <button type="submit" @click="pushSelectedGenres()">Add genres</button> 
-    <div>
-      <h3>User Preferences</h3>
-      <ul>
-        <li v-for="genre in selectedGenres" :key="genre.id">
-          {{ genre.genreName }}
-        </li>
-      </ul>
-    </div> 
+    <button @click="updatePreferences">Save Prefs</button>
   </div>
 </template>
 <script>
@@ -56,27 +49,35 @@ export default {
   methods: {
     getUserPref(id) {
       MovieService.getGenreByUserId(id).then((response) => {
-        this.selectedGenres = response.data.genres.map(g => g.id);
+        this.selectedGenres = response.data.genres.map((g) => g.id);
       });
     },
     selectGenres(gId) {
       const userGenreDto = { userId: this.currentUserId, genreId: gId };
       this.newGenres.push(userGenreDto);
     },
-    pushSelectedGenres() {
-      this.newGenres.forEach((selectedId) => {
-        const userGenreDto = {
-          userId: this.currentUserId,
-          genreId: selectedId,
-        };
-        MovieService.addGenreToPref(userGenreDto).then((response) => {
-          if (response.status === 201) {
-            alert("added genre");
-            this.getUserPref(this.currentUserId);
-            this.$store.commit("SET_PREFERRED_GENRES", this.selectedGenres)
-          }
-        });
-      });
+    updatePreferences() {
+      window.alert(this.$store.state.user.preferences.length);
+      MovieService.addUserPrefs(this.$store.state.user.id, {
+        genres: this.$store.state.user.preferences.map((prefs) => {
+          return { id: prefs };
+        }),
+      })
+        .then(window.alert("prefences saved"))
+        .catch(window.alert("failed to save preferences"));
+      // this.newGenres.forEach((selectedId) => {
+      //   const userGenreDto = {
+      //     userId: this.currentUserId,
+      //     genreId: selectedId,
+      //   };
+      //   MovieService.addGenreToPref(userGenreDto).then((response) => {
+      //     if (response.status === 201) {
+      //       alert("added genre");
+      //       this.getUserPref(this.currentUserId);
+      //       this.$store.commit("SET_PREFERRED_GENRES", this.selectedGenres);
+      //     }
+      //   });
+      // });
     },
   },
 };

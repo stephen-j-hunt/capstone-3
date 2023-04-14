@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export default {
-   getUserById(id) {
-     return axios.get(`/users/${id}`);
-   },
+  getUserById(id) {
+    return axios.get(`/users/${id}`);
+  },
 
   getAll() {
     return axios.get('/movies');
@@ -16,18 +16,10 @@ export default {
     return axios.get(`/genres/${id}`);
   },
 
-  addGenreToPref(userGenreDto) {
-    return axios.post(`/genres`, userGenreDto);
-  },
-
-  clearUserPrefs(id) {
-    return axios.delete(`/users/${id}/preferences`);
-  },
-
-  addUserPrefs(id) {
-    return axios.post(`/users/${id}/preferences`);
+  addUserPrefs(id, preferences) {
+    return axios.put(`/users/${id}/preferences`, preferences);
   }
-  
+
 
 
 }

@@ -5,22 +5,25 @@
 </template>
 
 <script>
-import MovieService from '../services/MovieService'
+import MovieService from "../services/MovieService";
 
 export default {
   data() {
-    return {}
+    return {};
   },
   computed: {
-    getUser(){  
+    getUser() {
       return this.$store.getters.getUser;
-    }
+    },
   },
-   created() {
+  created() {
     MovieService.getUserById(this.getUser.id).then((response) => {
+      if (!response.data.preferences) {
+        response.data.preferences = [];
+      }
       this.$store.commit("SET_USER", response.data);
     });
-  }
+  },
 };
 </script>
 

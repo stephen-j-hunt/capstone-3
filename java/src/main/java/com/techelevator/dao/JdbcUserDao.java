@@ -44,6 +44,13 @@ public class JdbcUserDao implements UserDao {
 		String sql = "SELECT * FROM users WHERE user_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 		if (results.next()) {
+            User user = mapRowToUser(results);
+            String sql2 = "SELECT * FROM user_genre WHERE user_id =?;";
+            SqlRowSet rs = jdbcTemplate.queryForRowSet(sql2, userId);
+
+            if (rs.next()) {
+                user.getPreferences().getGenres().add(new Genre(rs.getInt("genre_id"), ""));
+            }
 			return mapRowToUser(results);
 		} else {
 			return null;
