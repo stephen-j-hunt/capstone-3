@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1>Welcome {{ getUser.username }}!</h1>
+    <h3>
+      Please select the genres you enjoy to enhance your browsing experience!
+    </h3>
   </div>
 </template>
 

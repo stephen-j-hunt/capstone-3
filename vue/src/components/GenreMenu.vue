@@ -3,9 +3,7 @@
     <label for="genres">Select genres:</label>
 
     <table>
-      <tr>
-        <th>Genre Name:</th>
-      </tr>
+      <tr></tr>
       <tbody>
         <tr v-for="genre in $store.state.genres" :key="genre.id">
           <td>
