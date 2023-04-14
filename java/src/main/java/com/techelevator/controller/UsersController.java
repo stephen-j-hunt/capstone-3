@@ -39,10 +39,8 @@ public class UsersController {
         this.userDao.clearUserPrefs(userId, genreId);
     }
 
-    @PutMapping("/users/{id}/preferences")
+    @PutMapping("/users/{userId}/preferences")
     public void addUserPreferences(@PathVariable int userId, @RequestBody Preferences preferences) {
-        User user = userDao.getUserById(userId);
-        userDao.addUserPreferences(user.getId(), preferences);
-        user.setPreferences(preferences);
+        userDao.addUserPreferences(userId, preferences);
     }
 }

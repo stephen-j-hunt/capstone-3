@@ -77,10 +77,12 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public void addUserPreferences(int userId, Preferences preferences) {
+        String sql1 = "DELETE FROM user_genre WHERE user_id = ?;";
+        jdbcTemplate.update(sql1, userId);
 
-        String sql = "INSERT INTO user_genre WHERE user_id = ? AND genre_id = ?; ";
+        String sql2 = "INSERT INTO user_genre (user_id, genre_id) VALUES(?,?);";
         for(Genre g : preferences.getGenres()) {
-            jdbcTemplate.update(sql, userId, g.getId());
+            jdbcTemplate.update(sql2, userId, g.getId());
         }
     }
 
