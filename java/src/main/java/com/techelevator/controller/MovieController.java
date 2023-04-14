@@ -25,6 +25,12 @@ public class MovieController {
     @GetMapping("/movies")
     public List<Movie> getAll() {return this.movieDao.getAll();}
 
+    @GetMapping("/movies/{id}")
+    public Movie getMovieById(@PathVariable int id) {return this.movieDao.getMovieById(id);}
+
+    @GetMapping("/movies/genres/{genreId}")
+    public List <Movie> getMoviesByGenreId(@PathVariable int genreId) {return this.movieDao.getMoviesByGenreId(genreId);}
+
 
     @GetMapping("/genres")
     public List<Genre> getAllGenres() {
@@ -33,8 +39,10 @@ public class MovieController {
 
     @GetMapping("/genres/{id}")
     public List<Genre> getGenreByUserId(@PathVariable int id){
+
         return genreDao.getGenreByUserId(id);
     }
+
 
 
 

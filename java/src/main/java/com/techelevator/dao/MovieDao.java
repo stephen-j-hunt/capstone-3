@@ -9,5 +9,8 @@ public interface MovieDao {
     //get a list of all movies
     List<Movie> getAll();
 
+    Movie getMovieById(int id);
+
+    List<Movie> getMoviesByGenreId(int genreId);
 
 }
