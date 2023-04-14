@@ -48,48 +48,23 @@ public class JdbcUserDao implements UserDao {
             String sql2 = "SELECT * FROM user_genre WHERE user_id =?;";
             SqlRowSet rs = jdbcTemplate.queryForRowSet(sql2, userId);
 
-            if (rs.next()) {
-                user.getPreferences().getGenres().add(new Genre(rs.getInt("genre_id"), ""));
+            while (rs.next()) {
+                user.getPreferences().add(rs.getInt("genre_id"));
             }
-			return mapRowToUser(results);
+			return user;
 		} else {
 			return null;
 		}
 	}
 
     @Override
-    public List<Genre> getUserPrefs(int userId) {
-        List<Genre> userPrefs = new ArrayList<>();
-        String sql = "SELECT genre.genre_id, genre_name \n" +
-                "FROM user_genre \n" +
-                "\tJOIN genre ON genre.genre_id = user_genre.genre_id \n" +
-                "WHERE user_id=?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
-        while(results.next()){
-            Genre genre = new Genre();
-            genre.setId(results.getInt("genre_id"));
-            genre.setGenreName(results.getString("genre_name"));
-            userPrefs.add(genre);
-        }
-        return userPrefs;
-    }
-
-
-
-    @Override
-    public void clearUserPrefs(int userId, int genreId) {
-        String sql = "DELETE FROM user_genre WHERE user_id = ? AND genre_id = ?; ";
-        jdbcTemplate.update(sql, userId, genreId);
-    }
-
-    @Override
-    public void addUserPreferences(int userId, Preferences preferences) {
+    public void addUserPreferences(int userId, List<Integer> preferences) {
         String sql1 = "DELETE FROM user_genre WHERE user_id = ?;";
         jdbcTemplate.update(sql1, userId);
 
         String sql2 = "INSERT INTO user_genre (user_id, genre_id) VALUES(?,?);";
-        for(Genre g : preferences.getGenres()) {
-            jdbcTemplate.update(sql2, userId, g.getId());
+        for(Integer genreId : preferences) {
+            jdbcTemplate.update(sql2, userId, genreId);
         }
     }
 

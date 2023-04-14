@@ -12,12 +12,7 @@ public interface UserDao {
 
     User getUserById(int userId);
 
-    List <Genre> getUserPrefs(int id);
-
-    void clearUserPrefs(int userId, int genreId);
-
-    void addUserPreferences(int userId, Preferences preferences);
-
+    void addUserPreferences(int userId, List<Integer> preferences);
 
 
     User findByUsername(String username);

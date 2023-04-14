@@ -37,11 +37,11 @@ public class MovieController {
         return this.genreDao.getAllGenres();
     }
 
-    @GetMapping("/genres/{id}")
-    public List<Genre> getGenreByUserId(@PathVariable int id){
-
-        return genreDao.getGenreByUserId(id);
-    }
+//    @GetMapping("/genres/{id}")
+//    public List<Genre> getGenreByUserId(@PathVariable int id){
+//
+//        return genreDao.getGenreByUserId(id);
+//    }
 
 
 

@@ -16,8 +16,8 @@ export default {
     return axios.get(`/genres/${id}`);
   },
 
-  addUserPrefs(id, preferences) {
-    return axios.put(`/users/${id}/preferences`, preferences);
+  addUserPrefs(user) {
+    return axios.put(`/users/${user.id}/preferences`, user.preferences);
   }
 
 

@@ -63,9 +63,6 @@ export default new Vuex.Store({
       return state.user;
     },
 
-    getUserPrefs: state => {
-      return state.userPrefs;
-    }
   },
 
   mutations: {
@@ -92,16 +89,5 @@ export default new Vuex.Store({
       state.genres = genres;
     },
 
-    SET_PREFERRED_GENRES(state, userPrefs) {
-      state.userPrefs = userPrefs;
-    },
-    ADD_PREFERRED_GENRES(state, payload) {
-      state.userPrefs.push(payload)
-    },
-    REMOVE_GENRE(state, genreId) {
-      state.userPrefs.filter((genre) => {
-        genre.id !== genreId
-      });
-    }
   }
 })

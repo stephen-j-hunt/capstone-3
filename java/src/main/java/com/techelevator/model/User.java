@@ -2,9 +2,7 @@ package com.techelevator.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class User {
 
@@ -15,8 +13,12 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
-   private Preferences preferences;
-   //change this to int[] preferences
+   private List<Integer> preferences = new ArrayList<>();
+
+   public List<Integer> getPreferences() {
+      return preferences;
+   }
+//change this to int[] preferences
 
    public User() { }
 
@@ -68,13 +70,7 @@ public class User {
       this.authorities = authorities;
    }
 
-   public Preferences getPreferences() {
-      return preferences;
-   }
 
-   public void setPreferences(Preferences preferences) {
-      this.preferences = preferences;
-   }
 
    public void setAuthorities(String authorities) {
       String[] roles = authorities.split(",");
