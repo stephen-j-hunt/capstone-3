@@ -55,8 +55,9 @@ public class JdbcMovieDao implements MovieDao{
     public List<Movie> getMoviesByGenreId(int genreId) {
         final String sql = "SELECT id, title, release_date, overview, poster\n" +
                 "From movies\n" +
-                "Join movie_genre on movie_genre.movie_id = movies.id \n" +
-                "Where genre_id = ?;";
+                "Join movie_genre on movie_genre.movie_id = movies.id\n" +
+                "Join genre ON genre.genre_id = movie_genre.genre_id \n" +
+                "Where movie_genre.genre_id = ? Order by genre.genre_name, movies.title;";
 
         final SqlRowSet rs = this.jdbcTemplate.queryForRowSet(sql, genreId);
         List<Movie> movies = new ArrayList<>();
