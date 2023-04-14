@@ -1,14 +1,15 @@
 <template>
-
-<div>
-  <h2>Genre Name</h2>
-  <div class="movie-cards">
-    <movie-card
-      v-for="movie in filteredMoviesByGenre"
-      :key="movie.id"
-      v-bind:movie="movie"
-    />
-  </div>
+  <div>
+    <h2>
+      {{ genreName }}
+    </h2>
+    <div class="movie-cards">
+      <movie-card
+        v-for="movie in movies"
+        :key="movie.id"
+        v-bind:movie="movie"
+      />
+    </div>
   </div>
 </template>
 
@@ -17,21 +18,29 @@ import MovieCard from "../components/MovieCard.vue";
 import MovieService from "../services/MovieService";
 export default {
   name: "movie-list",
+  props: ["genreId"],
+  data() {
+    return {
+      movies: [],
+    };
+  },
   components: {
     MovieCard,
   },
   computed: {
-    filteredMoviesByGenre() {
-      const moviesFilter = this.$store.state.movies;
-      return moviesFilter;
+    getUser() {
+      return this.$store.getters.getUser;
+    },
+    genreName() {
+      return this.$store.state.genres.find((genre) => {
+        return genre.id == this.genreId;
+      }).genreName;
     },
   },
   created() {
-    MovieService.getAll().then((response) => {
-      this.$store.commit("SET_MOVIES", response.data);
+    MovieService.getMoviesByGenreId(this.genreId).then((response) => {
+      this.movies = response.data;
     });
-   
-    
   },
 };
 </script>
@@ -44,7 +53,7 @@ export default {
   flex-wrap: wrap;
 }
 
-h2{
+h2 {
   text-align: center;
 }
 </style>

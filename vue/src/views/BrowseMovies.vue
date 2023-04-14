@@ -3,10 +3,11 @@
     <h1>Recommend Movies</h1>
 
     <div class="movie-list-container">
-      <movie-list />
-    </div>
-    <div class="movie-list-container">
-      <movie-list />
+      <movie-list
+        v-for="genreId in $store.state.user.preferences"
+        :key="genreId"
+        v-bind:genreId="genreId"
+      />
     </div>
   </div>
 </template>
@@ -17,7 +18,6 @@ export default {
   name: "browse-movies",
   components: {
     MovieList,
-
   },
 };
 </script>

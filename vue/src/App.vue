@@ -11,11 +11,18 @@
 <script>
 import navBar from "./components/Navbar.vue";
 import pageHeader from "./components/Header.vue";
+import MovieService from "./services/MovieService";
 
 export default {
   components: {
     pageHeader,
     navBar,
+  },
+  created() {
+    MovieService.getAllGenres().then((response) => {
+      console.log(`loaded ${response.data.length} genres`);
+      this.$store.commit("SET_GENRES", response.data);
+    });
   },
 };
 </script>

@@ -22,6 +22,10 @@ export default new Vuex.Store({
     user: currentUser || {},
     genres: [],
     movies: [],
+    userMovies: {
+      favorites: [],
+      watchlist: [],
+    }
   },
   getters: {
     getRandomMovies: state => {
@@ -33,6 +37,12 @@ export default new Vuex.Store({
     getUser: state => {
       return state.user;
     },
+    getFavorites: state => {
+      return state.userMovies.favorites;
+    },
+    getWatchlist: state => {
+      return state.userMovies.watchlist;
+    }
 
   },
 
@@ -58,6 +68,15 @@ export default new Vuex.Store({
     },
     SET_GENRES(state, genres) {
       state.genres = genres;
+    },
+    SET_USER_MOVIES(state, userMovies) {
+      state.userMovies = userMovies;
+    },
+    SET_FAVORITES(state, favorites) {
+      state.userMovies.favorites = favorites;
+    },
+    SET_WATCHLIST(state, watchlist) {
+      state.userMovies.watchlist = watchlist;
     },
 
   }

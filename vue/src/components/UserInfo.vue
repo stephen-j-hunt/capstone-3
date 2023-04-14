@@ -9,12 +9,14 @@
 
 <script>
 import MovieService from "../services/MovieService";
+// import { mapGetters } from "../store";
 
 export default {
   data() {
     return {};
   },
   computed: {
+    // ...mapGetters(["getUser"]),
     getUser() {
       return this.$store.getters.getUser;
     },

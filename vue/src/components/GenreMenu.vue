@@ -26,12 +26,12 @@
 <script>
 import MovieService from "../services/MovieService";
 export default {
-  created() {
-    MovieService.getAllGenres().then((response) => {
-      console.log(`loaded ${response.data.length} genres`);
-      this.$store.commit("SET_GENRES", response.data);
-    });
-  },
+  // created() {
+  //   MovieService.getAllGenres().then((response) => {
+  //     console.log(`loaded ${response.data.length} genres`);
+  //     this.$store.commit("SET_GENRES", response.data);
+  //   });
+  // },
   computed: {
     currentUserId() {
       return this.$store.state.user.id;
