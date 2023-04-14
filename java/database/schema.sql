@@ -40,5 +40,16 @@ CREATE TABLE user_genre (
 	CONSTRAINT FK_user_genre_genre FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
 );
 
+CREATE TABLE user_movies (
+	user_id INT,
+	movie_id INT,
+	favorite BOOLEAN DEFAULT false,
+	watchlist BOOLEAN DEFAULT false,
+	CONSTRAINT PK_user_user_movies PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_user_movie_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_user_movie_movie FOREIGN KEY (movie_id) REFERENCES movie(id)
+);
+
+
 
 COMMIT TRANSACTION;

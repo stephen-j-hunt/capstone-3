@@ -37,6 +37,11 @@ public class MovieController {
         return this.genreDao.getAllGenres();
     }
 
+    @PutMapping("/userMovies")
+    public void setUserMovies(@RequestBody UserMovies userMovies) {
+
+    }
+
 //    @GetMapping("/genres/{id}")
 //    public List<Genre> getGenreByUserId(@PathVariable int id){
 //

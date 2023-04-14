@@ -68,10 +68,9 @@ public class JdbcMovieDao implements MovieDao{
     }
 
 
-    private Movie mapRowToMovie(SqlRowSet rs) {
+    public static Movie mapRowToMovie(SqlRowSet rs) {
         final int id = rs.getInt("id");
         final String title = rs.getString("title");
-        //final String genre = rs.getString("genre");
         final String overview = rs.getString("overview");
         final String poster = rs.getString("poster");
         LocalDate releaseDate = null;

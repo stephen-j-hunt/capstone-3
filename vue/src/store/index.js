@@ -20,37 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    genres: [{
-      id: "1",
-      genreName: "sci-fi"
-    },
-    {
-      id: "2",
-      genreName: ""
-    }
-    ],
-    movies: [{
-      "id": 5,
-      "title": "Belle époque",
-      "releaseDate": "2022-09-05",
-      "poster": "http://dummyimage.com/100x150.png/ff4444/ffffff",
-      "overview": "lorem ipsum dolor sit amet consectetuer adipiscing elit proin risus praesent lectus vestibulum quam sapien"
-    },
-    {
-      id: "2",
-      title: "movie 2",
-      releaseDate: "1990/10/10",
-      poster: "https://m.media-amazon.com/images/I/81hrmOm3XKL._AC_SY879_.jpg",
-      overview: "movie details for second"
-    },
-    {
-      id: "3",
-      title: "movie 3",
-      releaseDate: "1990/10/10",
-      poster: "https://m.media-amazon.com/images/I/81hrmOm3XKL._AC_SY879_.jpg",
-      overview: "movie details that will be here for the third"
-    }
-    ],
+    genres: [],
+    movies: [],
   },
   getters: {
     getRandomMovies: state => {
