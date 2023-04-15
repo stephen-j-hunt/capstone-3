@@ -3,7 +3,6 @@
     <div class="home">
       <h1>Welcome to Movie Elevator!</h1>
       <!-- <p>You must be authenticated to see this</p> -->
-      <!-- <home-img /> -->
       <site-description class="description" />
       <home-movie-preview class="preview" />
       <h4>
@@ -16,13 +15,11 @@
 </template>
 
 <script>
-// import HomeImg from "../components/HomeImg.vue";
 import SiteDescription from "../components/SiteDescription.vue";
 import HomeMoviePreview from "../components/HomeMoviePreview.vue";
 export default {
   name: "home",
   components: {
-    // HomeImg,
     SiteDescription,
     HomeMoviePreview,
   },

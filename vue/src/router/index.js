@@ -7,7 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import MyAccount from '../views/MyAccount.vue'
 import MyMovies from '../views/MyMovies.vue'
-import BrowseMovies from '../views/BrowseMovies.vue'
+import RecommendedMovies from '../views/RecommendedMovies.vue'
 import MovieCardDetail from '../views/MovieCardDetail.vue'
 
 Vue.use(Router)
@@ -74,9 +74,9 @@ const router = new Router({
       }
     },
     {
-      path: "/browse-movies",
-      name: "browse-movies",
-      component: BrowseMovies,
+      path: "/recommended-movies",
+      name: "recommended-movies",
+      component: RecommendedMovies,
       meta: {
         requiresAuth: false
       }

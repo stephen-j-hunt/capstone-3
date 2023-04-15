@@ -1,6 +1,6 @@
 <template>
-  <div class="browse-movies">
-    <h1>Recommend Movies</h1>
+  <div class="recommended-movies">
+    <h1>Recommended Movies</h1>
 
     <div class="movie-list-container">
       <movie-list
@@ -15,7 +15,7 @@
 <script>
 import MovieList from "../components/MovieList.vue";
 export default {
-  name: "browse-movies",
+  name: "recommended-movies",
   components: {
     MovieList,
   },

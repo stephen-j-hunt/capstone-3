@@ -23,10 +23,10 @@
       >My Movies</router-link
     >
     <router-link
-      v-bind:to="{ name: 'browse-movies' }"
+      v-bind:to="{ name: 'recommended-movies' }"
       v-if="$store.state.token !== ''"
       class="nav-link"
-      >Browse Movies</router-link
+      >Recommended Movies</router-link
     >
     <router-link
       v-bind:to="{ name: 'logout' }"

@@ -1,7 +1,7 @@
 <template>
   <div class="site-description">
-    <h2>Elevate Your Movie Taste</h2>
-    <p>We will take your current movie</p>
+    <h2>Elevate Your Cinematic Taste</h2>
+    <p>We can give you recommendations based on your favorite genres</p>
   </div>
 </template>
 
