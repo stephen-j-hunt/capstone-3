@@ -15,7 +15,7 @@ export default {};
   font-size: 25px;
   text-align: center;
   margin: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
 }
 p {
   font-size: 20px;

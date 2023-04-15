@@ -1,8 +1,6 @@
 <template>
   <div class="my-account">
-   
-
-    <div>
+    <div class="account">
       <user-info />
       <genre-menu />
     </div>
@@ -22,4 +20,8 @@ export default {
 </script>
 
 <style scoped>
+.my-account {
+  display: flex;
+  justify-content: center;
+}
 </style>

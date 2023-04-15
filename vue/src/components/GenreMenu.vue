@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="genre-menu">
     <label for="genres">Select genres:</label>
 
-    <table>
+    <table class="genre-table">
       <tr></tr>
       <tbody>
         <tr v-for="genre in $store.state.genres" :key="genre.id">
@@ -20,7 +20,9 @@
         </tr>
       </tbody>
     </table>
-    <button @click="updatePreferences">Save Genre Preferences</button>
+    <div class="update-button">
+      <button @click="updatePreferences">Save Genre Preferences</button>
+    </div>
   </div>
 </template>
 <script>
@@ -46,6 +48,42 @@ export default {
   },
 };
 </script>
+<style scoped>
+.genre-menu {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 3px solid yellow;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.update-button {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.genre-table {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+}
+label {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+input {
+  margin-left: 70px;
+  margin-right: 17px;
+}
+button {
+  padding: 8px;
+}
+button:hover {
+  background-color: yellow;
+}
+</style>
 
 
 

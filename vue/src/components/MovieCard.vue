@@ -9,7 +9,7 @@
     <div class="card-btns">
       <button>Favorite</button>
       <button>Dislike</button>
-      <button title= "Add to Watchlist">+</button>
+      <button title="Add to Watchlist">+</button>
     </div>
   </div>
 </template>
@@ -22,9 +22,9 @@ export default {
 </script>
 
 <style scoped>
-
 div.card {
   border: 3px gold solid;
+  border-radius: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   height: 260px;

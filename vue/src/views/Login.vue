@@ -83,6 +83,7 @@ export default {
 form {
   text-align: center;
   border: 5px solid gold;
+  border-radius: 20px;
   margin: 20px;
   padding: 50px 100px;
 }

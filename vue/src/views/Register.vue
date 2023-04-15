@@ -30,8 +30,8 @@
       </div>
       <button class="create-acc-btn" type="submit">Create Account</button>
       <p>
-        <router-link class="login-link" :to="{ name: 'login' }"
-          >Already have an account? Log in.</router-link
+        <router-link class="login-link" :to="{ name: 'login' }">
+          Login Here</router-link
         >
       </p>
     </form>
@@ -100,6 +100,7 @@ export default {
 form {
   text-align: center;
   border: 5px solid gold;
+  border-radius: 20px;
   margin: 20px;
   padding: 50px 100px;
 }
@@ -117,7 +118,7 @@ p {
 }
 .login-link {
   color: gold;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .create-acc-btn {
