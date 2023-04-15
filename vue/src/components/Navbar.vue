@@ -50,8 +50,7 @@ export default {
   justify-content: flex-start;
   align-items: stretch;
   background-color: #d80000;
-  font-size: 1.5rem;
-  padding-right: 5px;
+  font-size: 1.4rem;
 }
 .nav-link {
   text-decoration: none;
@@ -59,12 +58,12 @@ export default {
   color: inherit;
   padding: 0.8rem 0;
   display: block;
-
-  /* border-bottom: 2px solid white; */
 }
 
 .nav-link:hover {
   background-color: #f5f5f580;
+
+  border-radius: 30px;
   color: gold;
 }
 
@@ -75,7 +74,6 @@ export default {
 .logout {
   margin-top: 530px;
   border-bottom: none;
-  /* border-bottom: 2px solid white; */
 }
 </style>
 

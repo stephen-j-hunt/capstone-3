@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <page-header />
+    <header>
+      <page-header />
+    </header>
     <nav-bar />
     <div class="main-content">
       <router-view />
@@ -41,7 +43,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 170px 1fr;
   grid-template-areas:
     "header header"
     "navbar main";
