@@ -28,6 +28,7 @@ export default {
   /* justify-content: center; */
   height: 100%;
   background-color: #d80000;
+  /* background-color: rgb(0, 0, 0); */
 }
 
 img {

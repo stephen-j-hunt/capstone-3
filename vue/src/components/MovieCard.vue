@@ -60,7 +60,7 @@ div.card {
   justify-content: space-evenly;
 }
 .card-btns button {
-  border-radius: 8px;
+  border-radius: 6px;
 }
 .card-btns button:hover {
   background-color: #ffc107;

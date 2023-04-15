@@ -34,14 +34,14 @@
       class="nav-link"
       >All Movies</router-link
     >
-    <div class="logout">
-      <router-link
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token !== ''"
-        class="nav-link"
-        >Logout</router-link
-      >
-    </div>
+    <!-- <div class="logout"> -->
+    <router-link
+      v-bind:to="{ name: 'logout' }"
+      v-if="$store.state.token !== ''"
+      class="nav-link"
+      >Logout</router-link
+    >
+    <!-- </div> -->
   </div>
 </template>
 
@@ -53,9 +53,10 @@ export default {
 #nav {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
+  justify-content: space-around;
+  /* align-items: stretch; */
   background-color: #d80000;
+  /* background-color: rgb(0, 0, 0); */
   font-size: 1.4rem;
 }
 .nav-link {
@@ -63,7 +64,7 @@ export default {
   text-align: center;
   color: inherit;
   padding: 0.8rem 0;
-  display: block;
+  /* display: block; */
 }
 
 .nav-link:hover {
@@ -77,9 +78,9 @@ export default {
   font-weight: bolder;
   color: white; /* active link color */
 }
-.logout {
+/* .logout {
   margin-top: 530px;
   border-bottom: none;
-}
+} */
 </style>
 

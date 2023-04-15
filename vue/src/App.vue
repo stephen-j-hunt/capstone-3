@@ -30,10 +30,12 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Saira+Semi+Condensed&display=swap");
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Saira Semi Condensed", sans-serif;
   color: white;
 }
 
@@ -60,11 +62,7 @@ Navbar {
   height: 100%;
   overflow: scroll;
   background: rgb(211, 209, 218);
-  background: radial-gradient(
-    circle,
-    rgb(191, 191, 192) 5%,
-    rgba(41, 11, 28, 1) 83%
-  );
+  background: radial-gradient(circle, rgb(191, 191, 192) 5%, rgb(0, 0, 0) 70%);
 }
 </style>
 
