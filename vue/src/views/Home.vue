@@ -41,7 +41,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
   height: 40vh;
 }
 .description {
@@ -49,6 +49,8 @@ h1 {
 }
 .home {
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
 }
 .preview {
   height: 30vh;
@@ -64,6 +66,6 @@ h1 {
   color: gold;
   font-size: 18px;
   padding: 5px 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  /* background-color: rgba(0, 0, 0, 0.7); */
 }
 </style>

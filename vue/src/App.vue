@@ -41,7 +41,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-rows: 100px 1fr;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 160px 1fr;
   grid-template-areas:
     "header header"
     "navbar main";
@@ -57,7 +57,12 @@ Navbar {
   width: 100%;
   height: 100%;
   overflow: scroll;
-  background-color: black;
+  background: rgb(211, 209, 218);
+  background: radial-gradient(
+    circle,
+    rgb(191, 191, 192) 5%,
+    rgba(41, 11, 28, 1) 83%
+  );
 }
 </style>
 

@@ -28,12 +28,14 @@
       class="nav-link"
       >Recommended Movies</router-link
     >
-    <router-link
-      v-bind:to="{ name: 'logout' }"
-      v-if="$store.state.token !== ''"
-      class="nav-link"
-      >Logout</router-link
-    >
+    <div class="logout">
+      <router-link
+        v-bind:to="{ name: 'logout' }"
+        v-if="$store.state.token !== ''"
+        class="nav-link"
+        >Logout</router-link
+      >
+    </div>
   </div>
 </template>
 
@@ -49,14 +51,16 @@ export default {
   align-items: stretch;
   background-color: #d80000;
   font-size: 1.5rem;
+  padding-right: 5px;
 }
 .nav-link {
   text-decoration: none;
   text-align: center;
   color: inherit;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   display: block;
-  border-bottom: 2px solid white;
+
+  /* border-bottom: 2px solid white; */
 }
 
 .nav-link:hover {
@@ -67,6 +71,11 @@ export default {
 .router-link-exact-active {
   font-weight: bold;
   color: white; /* active link color */
+}
+.logout {
+  margin-top: 530px;
+  border-bottom: none;
+  /* border-bottom: 2px solid white; */
 }
 </style>
 

@@ -27,10 +27,10 @@ export default {
 </script>
 
 <style scoped>
-
 div.card {
   cursor: pointer;
   border: 3px gold solid;
+  border-radius: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   height: 260px;
