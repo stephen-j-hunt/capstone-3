@@ -9,6 +9,7 @@ import MyAccount from '../views/MyAccount.vue'
 import MyMovies from '../views/MyMovies.vue'
 import RecommendedMovies from '../views/RecommendedMovies.vue'
 import MovieCardDetail from '../views/MovieCardDetail.vue'
+import AllMovies from '../views/AllMovies.vue'
 
 Vue.use(Router)
 
@@ -85,6 +86,14 @@ const router = new Router({
       path: '/movie-card-detail/:id',
       name: 'movie-card-detail',
       component: MovieCardDetail,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/all-movies',
+      name: 'all-movies',
+      component: AllMovies,
       meta: {
         requiresAuth: false
       }

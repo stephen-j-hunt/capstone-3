@@ -1,11 +1,11 @@
 <template>
   <!-- <header> -->
+  <!-- <div> -->
   <div class="header-container">
     <img src="../assets/logo.png" alt="logo" />
-    <!-- <router-link to="/" class="logo-link"> -->
-    <!-- </router-link> -->
     <div class="title">Movie Elevator</div>
   </div>
+  <!-- </div> -->
   <!-- </header> -->
 </template>
 

@@ -28,6 +28,12 @@
       class="nav-link"
       >Recommended Movies</router-link
     >
+    <router-link
+      v-bind:to="{ name: 'all-movies' }"
+      v-if="$store.state.token !== ''"
+      class="nav-link"
+      >All Movies</router-link
+    >
     <div class="logout">
       <router-link
         v-bind:to="{ name: 'logout' }"
@@ -68,7 +74,7 @@ export default {
 }
 
 .router-link-exact-active {
-  font-weight: bold;
+  font-weight: bolder;
   color: white; /* active link color */
 }
 .logout {

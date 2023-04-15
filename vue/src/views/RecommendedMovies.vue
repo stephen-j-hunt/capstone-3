@@ -1,6 +1,6 @@
 <template>
   <div class="recommended-movies">
-    <h1>Recommended Movies</h1>
+    <h1>Recommended Movies For You</h1>
 
     <div class="movie-list-container">
       <movie-list
@@ -26,17 +26,17 @@ export default {
     MovieList,
   },
   created() {
-    this.$modal.registerComponent("movie-card-detail", 
-    () => import("../views/MovieCardDetail.vue")
+    this.$modal.registerComponent("movie-card-detail", () =>
+      import("../views/MovieCardDetail.vue")
     );
   },
   beforeDestroy() {
     this.$modal.unregisterComponent("movie-card-detail");
   },
-methods: {
+  methods: {
     showMovieDetail(movie) {
-      this.$modal.show("movie-card-detail", {movie});
-    }
+      this.$modal.show("movie-card-detail", { movie });
+    },
   },
 };
 </script>

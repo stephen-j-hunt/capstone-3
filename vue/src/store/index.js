@@ -78,6 +78,14 @@ export default new Vuex.Store({
     SET_WATCHLIST(state, watchlist) {
       state.userMovies.watchlist = watchlist;
     },
+    //add to favorites list
+    ADD_FAVORITE(state, movie) {
+      state.userMovies.favorites.push(movie);
+    },
+    //add to watchlist
+    ADD_TO_WATCHLIST(state, movie) {
+      state.userMovies.watchlist.push(movie);
+    }
 
   }
 })
