@@ -11,10 +11,11 @@ export default {};
 
 <style scoped>
 .site-description {
-  border: 3px solid gold;
+  border: 3px solid#FFC107;
   font-size: 25px;
   text-align: center;
   margin: 20px;
+  border-radius: 20px;
   /* background-color: rgba(0, 0, 0, 0.7); */
 }
 p {

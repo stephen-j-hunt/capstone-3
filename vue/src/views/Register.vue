@@ -99,10 +99,11 @@ export default {
 }
 form {
   text-align: center;
-  border: 5px solid gold;
+  border: 5px solid#FFC107;
   border-radius: 20px;
   margin: 20px;
   padding: 50px 100px;
+  background-color: rgb(51, 49, 49);
 }
 h1 {
   text-align: center;

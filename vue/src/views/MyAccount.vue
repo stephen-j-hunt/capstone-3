@@ -23,5 +23,6 @@ export default {
 .my-account {
   display: flex;
   justify-content: center;
+  
 }
 </style>

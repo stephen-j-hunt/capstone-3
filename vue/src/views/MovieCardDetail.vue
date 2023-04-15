@@ -1,9 +1,10 @@
 <template>
-  <div v-if="movie" class="movie-card-details-container">
+  <div class="movie-card-details-container">
     <h1 class="movie-title">{{ movie.title }}</h1>
     <img class="movie-image" :src="movie.poster" :alt="movie.title" />
     <h3 class="movie-release-date">{{ movie.releaseDate }}</h3>
     <p class="movie-description">{{ movie.overview }}</p>
+    <button class="back-btn" @click="goBack">&#8592; Back</button>
   </div>
 </template>
 
@@ -22,6 +23,11 @@ export default {
       this.movie = response.data;
     });
   },
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 
@@ -37,6 +43,19 @@ export default {
   border: 10px solid #FFC107;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.back-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #FFC107;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .movie-title {
@@ -51,7 +70,7 @@ export default {
 
 .movie-image {
   max-width: 100%;
-  height: 100px;
+  height: 300px;
   margin: 20px 0;
 }
 

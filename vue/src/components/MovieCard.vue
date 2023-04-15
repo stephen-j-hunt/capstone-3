@@ -1,6 +1,6 @@
 <template>
-  <div class="card" @click="navigateToDetail">
-    <div class="card-image">
+  <div class="card" >
+    <div class="card-image" @click="navigateToDetail">
       <img v-bind:src="movie.poster" alt="" />
     </div>
     <div class="card-title">
@@ -28,8 +28,8 @@ export default {
 
 <style scoped>
 div.card {
-  cursor: pointer;
-  border: 3px gold solid;
+  
+  border: 3px solid #FFC107;
   border-radius: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -39,15 +39,21 @@ div.card {
   margin-right: 15px;
   margin-left: 15px;
   margin-bottom: 25px;
+  background-color: rgb(51, 49, 49);
 }
 .card-btns {
   display: flex;
   justify-content: space-evenly;
 }
+.card-btns button:hover {
+  background-color: #FFC107;
+  color: #333;
+}
 .card-title {
   display: block;
 }
 .card-image {
+  cursor: pointer;
   object-fit: contain;
 }
 </style>

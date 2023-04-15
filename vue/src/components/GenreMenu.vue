@@ -53,10 +53,11 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border: 3px solid yellow;
+  border: 3px solid#FFC107;
   border-radius: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
+  background-color: rgb(51, 49, 49);
 }
 .update-button {
   display: flex;
