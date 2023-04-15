@@ -2,8 +2,8 @@
   <div v-if="movie" class="movie-card-details-container">
     <h1 class="movie-title">{{ movie.title }}</h1>
     <img class="movie-image" :src="movie.poster" :alt="movie.title" />
-    <h3 class="movie-release-date">{{ movie.release_date }}</h3>
-    <p class="movie-description">{{ movie.description }}</p>
+    <h3 class="movie-release-date">{{ movie.releaseDate }}</h3>
+    <p class="movie-description">{{ movie.overview }}</p>
   </div>
 </template>
 
@@ -51,7 +51,7 @@ export default {
 
 .movie-image {
   max-width: 100%;
-  height: auto;
+  height: 100px;
   margin: 20px 0;
 }
 
