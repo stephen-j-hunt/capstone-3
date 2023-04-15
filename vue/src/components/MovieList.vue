@@ -8,6 +8,7 @@
         v-for="movie in movies"
         :key="movie.id"
         v-bind:movie="movie"
+        @show-detail="$emit('show-detail', $event)"
       />
     </div>
   </div>

@@ -82,7 +82,7 @@ const router = new Router({
       }
     },
     {
-      path: '/movie-card-detail',
+      path: '/movie-card-detail/:id',
       name: 'movie-card-detail',
       component: MovieCardDetail,
       meta: {

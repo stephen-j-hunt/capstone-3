@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="navigateToDetail">
     <div class="card-image">
       <img v-bind:src="movie.poster" alt="" />
     </div>
@@ -9,7 +9,7 @@
     <div class="card-btns">
       <button>Favorite</button>
       <button>Dislike</button>
-      <button title= "Add to Watchlist">+</button>
+      <button title="Add to Watchlist">+</button>
     </div>
   </div>
 </template>
@@ -18,12 +18,18 @@
 export default {
   name: "movie-card",
   props: ["movie"],
+  methods: {
+    navigateToDetail() {
+      this.$router.push({ name: 'movie-card-detail', params: { id: this.movie.id } });
+    },
+  },
 };
 </script>
 
 <style scoped>
 
 div.card {
+  cursor: pointer;
   border: 3px gold solid;
   padding-top: 10px;
   padding-bottom: 10px;
