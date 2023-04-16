@@ -27,7 +27,9 @@ export default {
   align-items: center;
   /* justify-content: center; */
   height: 100%;
-  background-color: #d80000;
+  background: rgb(121, 12, 4);
+  background: radial-gradient(circle, rgb(113, 19, 36) 5%, rgb(36, 4, 10) 70%);
+  /* background-color: #d80000; */
   /* background-color: rgb(0, 0, 0); */
 }
 
