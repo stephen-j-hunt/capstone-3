@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS user_genre, movie_genre, user_movies, genre, movies, users;
+DROP TABLE IF EXISTS user_genre, movie_genre, user_favorites, user_watchlist, genre, movies, users;
 
 
 CREATE TABLE users (
@@ -40,14 +40,19 @@ CREATE TABLE user_genre (
 	CONSTRAINT FK_user_genre_genre FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
 );
 
-CREATE TABLE user_movies (
+CREATE TABLE user_favorites (
 	user_id INT,
 	movie_id INT,
-	favorite BOOLEAN DEFAULT false,
-	watchlist BOOLEAN DEFAULT false,
-	CONSTRAINT PK_user_user_movies PRIMARY KEY (user_id, movie_id),
-	CONSTRAINT FK_user_movies_user FOREIGN KEY (user_id) REFERENCES users(user_id),
-	CONSTRAINT FK_user_movies_movie FOREIGN KEY (movie_id) REFERENCES movies(id)
+	CONSTRAINT PK_user_favorites PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_user_favorites_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_user_favorites_movie FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
+CREATE TABLE user_watchlist (
+	user_id INT,
+	movie_id INT,
+	CONSTRAINT PK__user_watchlist PRIMARY KEY (user_id, movie_id),
+	CONSTRAINT FK_user_watchlist_user FOREIGN KEY (user_id) REFERENCES users(user_id),
+	CONSTRAINT FK_user_watchlist_movie FOREIGN KEY (movie_id) REFERENCES movies(id)
 );
 
 

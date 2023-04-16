@@ -8,7 +8,9 @@
     </div>
     <div class="card-btns">
       <button class="add-favorite-btn" @click="addToFavorites">Favorite</button>
-      <button class="dislike-btn">Dislike</button>
+      <button v-if="isFavorite" class="remove-favorite-btn">
+        Remove Favorite
+      </button>
       <button
         class="add-to-watchlist-btn"
         title="Add to Watchlist"
@@ -21,9 +23,18 @@
 </template>
 
 <script>
+import MovieService from "../services/MovieService";
 export default {
   name: "movie-card",
   props: ["movie"],
+  // computed: {
+  //   // need to have a computed to see if it is in the favorites list
+  //   isFavorite() {
+  //     return this.$store.state.favorites.some(
+  //       (favorite) => favorite.id === this.movie.id
+  //     );
+  //   },
+  // },
   methods: {
     navigateToDetail() {
       this.$router.push({
@@ -32,7 +43,16 @@ export default {
       });
     },
     addToFavorites() {
-      this.$store.commit("ADD_FAVORITE", this.movie);
+      MovieService.addFavorite(this.$store.state.user, this.movie).then(() => {
+        this.$store.commit("ADD_FAVORITE", this.movie);
+      });
+    },
+    removeFromFavorites() {
+      MovieService.deleteFavorite(this.$store.state.user, this.movie).then(
+        () => {
+          this.$store.commit("REMOVE_FAVORITE", this.movie);
+        }
+      );
     },
     addToWatchlist() {
       this.$store.commit("ADD_TO_WATCHLIST", this.movie);

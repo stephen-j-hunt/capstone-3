@@ -22,10 +22,8 @@ export default new Vuex.Store({
     user: currentUser || {},
     genres: [],
     movies: [],
-    userMovies: {
-      favorites: [],
-      watchlist: [],
-    }
+    favorites: [],
+    watchlist: [],
   },
   getters: {
     getRandomMovies: state => {
@@ -38,10 +36,10 @@ export default new Vuex.Store({
       return state.user;
     },
     getFavorites: state => {
-      return state.userMovies.favorites;
+      return state.favorites;
     },
     getWatchlist: state => {
-      return state.userMovies.watchlist;
+      return state.watchlist;
     }
 
   },
@@ -73,18 +71,26 @@ export default new Vuex.Store({
       state.userMovies = userMovies;
     },
     SET_FAVORITES(state, favorites) {
-      state.userMovies.favorites = favorites;
+      state.favorites = favorites;
     },
     SET_WATCHLIST(state, watchlist) {
-      state.userMovies.watchlist = watchlist;
+      state.watchlist = watchlist;
     },
     //add to favorites list
     ADD_FAVORITE(state, movie) {
-      state.userMovies.favorites.push(movie);
+      state.favorites.push(movie);
+    },
+    REMOVE_FAVORITE(state, movie) {
+      const index = state.favorites.findIndex(
+        (favorite) => favorite.id === movie.id
+      );
+      if (index !== -1) {
+        state.favorites.splice(index, 1);
+      }
     },
     //add to watchlist
     ADD_TO_WATCHLIST(state, movie) {
-      state.userMovies.watchlist.push(movie);
+      state.watchlist.push(movie);
     }
 
   }
