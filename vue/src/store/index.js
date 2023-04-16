@@ -51,10 +51,12 @@ export default new Vuex.Store({
       state.token = token;
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+      console.log('Token set:', state.token);
     },
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user', JSON.stringify(user));
+      console.log('User set:', state.user);
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
@@ -72,6 +74,11 @@ export default new Vuex.Store({
     SET_USER_MOVIES(state, userMovies) {
       state.userMovies = userMovies;
     },
+
+    SET_USER_PREFS(state, preferences) {
+      state.user.preferences = preferences;
+    },
+
     SET_FAVORITES(state, favorites) {
       state.userMovies.favorites = favorites;
     },

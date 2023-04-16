@@ -14,7 +14,8 @@
               type="checkbox"
               name="genreId"
               :value="genre.id"
-              v-model="$store.state.user.preferences"
+              :checked="$store.state.user.preferences.includes(genre.id)"
+              @change="updateLocalPreferences(genre.id)"
             />
           </td>
         </tr>
@@ -25,15 +26,16 @@
     </div>
   </div>
 </template>
+
 <script>
 import MovieService from "../services/MovieService";
 export default {
-  // created() {
-  //   MovieService.getAllGenres().then((response) => {
-  //     console.log(`loaded ${response.data.length} genres`);
-  //     this.$store.commit("SET_GENRES", response.data);
-  //   });
-  // },
+  created() {
+    MovieService.getAllGenres().then((response) => {
+      console.log(`loaded ${response.data.length} genres`);
+      this.$store.commit("SET_GENRES", response.data);
+    });
+  },
   computed: {
     currentUserId() {
       return this.$store.state.user.id;
@@ -41,12 +43,32 @@ export default {
   },
   methods: {
     updatePreferences() {
-      MovieService.addUserPrefs(this.$store.state.user).then(
-        window.alert("Genre Prefences saved")
-      );
-    },
-  },
+     MovieService.addUserPrefs(this.$store.state.user).then(() => {
+    // Save user preferences to local storage
+    localStorage.setItem(
+      "user_preferences",
+      JSON.stringify(this.$store.state.user.preferences)
+    );
+    window.alert("Genre Preferences saved");
+  });
+},
+// updateLocalPreferences(genreId) {
+//       if (this.$store.state.user.preferences.includes(genreId)) {
+//         const newPreferences = this.$store.state.user.preferences.filter(
+//           (pref) => pref !== genreId
+//         );
+//         this.$store.commit("SET_USER_PREFS", newPreferences);
+//       } else {
+//         this.$store.commit("SET_USER_PREFS", [
+//           ...this.$store.state.user.preferences,
+//           genreId,
+//         ]);
+//       }
+//     },
+  }
+  ,
 };
+
 </script>
 <style scoped>
 .genre-menu {

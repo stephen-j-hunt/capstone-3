@@ -1,11 +1,11 @@
 <template>
   <!-- <header> -->
-  <!-- <div> -->
   <div class="header-container">
-    <img src="../assets/movieclapboard.png" alt="logo" />
+    <img src="../assets/logo.png" alt="logo" />
+    <!-- <router-link to="/" class="logo-link"> -->
+    <!-- </router-link> -->
     <div class="title">Movie Elevator</div>
   </div>
-  <!-- </div> -->
   <!-- </header> -->
 </template>
 
@@ -16,16 +16,18 @@ export default {
 
 <style scoped>
 @import url("https://fonts.cdnfonts.com/css/cinema-st");
+/* header {
+  align-items: center;
+  background-color: #d80000;
+  width: 100%;
+} */
 
 .header-container {
   display: flex;
   align-items: center;
   /* justify-content: center; */
   height: 100%;
-  background: rgb(121, 12, 4);
-  background: radial-gradient(circle, rgb(199, 7, 42) 5%, rgb(36, 4, 10) 70%);
-  /* background-color: #d80000; */
-  /* background-color: rgb(0, 0, 0); */
+  background-color: #d80000;
 }
 
 img {
@@ -33,19 +35,15 @@ img {
   margin-right: 1rem;
   /* object-fit: contain; */
   padding: 20px;
-  height: 110%;
-  margin-top: 15px;
+  height: 90%;
 }
 
 .title {
-  display: inline-block;
-
-  /* position: absolute;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   font-family: "Cinema St", sans-serif;
-  color: white;
-  /* margin-left: 40rem; */
-  margin-top: 1rem;
+  color: black;
+  margin-left: 1.75rem;
   font-size: 5rem; /* Adjust the font size here */
 }
 </style>

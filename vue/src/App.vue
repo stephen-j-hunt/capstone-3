@@ -21,11 +21,17 @@ export default {
     navBar,
   },
   created() {
-    MovieService.getAllGenres().then((response) => {
-      console.log(`loaded ${response.data.length} genres`);
-      this.$store.commit("SET_GENRES", response.data);
-    });
-  },
+  // Load user preferences from local storage
+  const userPreferences = localStorage.getItem("userPreferences");
+  if (userPreferences) {
+    this.$store.commit("SET_USER_PREFS", JSON.parse(userPreferences));
+  }
+
+  MovieService.getAllGenres().then((response) => {
+    console.log(`loaded ${response.data.length} genres`);
+    this.$store.commit("SET_GENRES", response.data);
+  });
+},
 };
 </script>
 

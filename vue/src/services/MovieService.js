@@ -23,6 +23,13 @@ export default {
     return axios.put(`/users/${user.id}/preferences`, user.preferences);
   },
 
+  updateUserPrefs(userId, preferences) {
+    return axios.put(`/users/${userId}/preferences`, preferences);
+  },
+  getUserPrefs(userId) {
+    return axios.get(`/users/${userId}/preferences`);
+  },
+
   //gets a movie by its id
   getMovieById(id) {
     return axios.get(`/movies/${id}`);
