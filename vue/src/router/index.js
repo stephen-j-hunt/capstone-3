@@ -79,7 +79,7 @@ const router = new Router({
       name: "recommended-movies",
       component: RecommendedMovies,
       meta: {
-        requiresAuth: false
+        requiresAuth: true //change this to true
       }
     },
     {
@@ -104,6 +104,8 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // Determine if the route requires Authentication
   const requiresAuth = to.matched.some(x => x.meta.requiresAuth);
+  console.log('Requires auth:', requiresAuth);
+  console.log('Token:', store.state.token);
 
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {

@@ -36,6 +36,7 @@
 
 <script>
 import authService from "../services/AuthService";
+import MovieService from "../services/MovieService";
 
 export default {
   name: "login",
@@ -51,23 +52,33 @@ export default {
   },
   methods: {
     login() {
-      authService
-        .login(this.user)
-        .then((response) => {
-          if (response.status == 200) {
-            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/my-account");
-          }
-        })
-        .catch((error) => {
-          const response = error.response;
-
-          if (response.status === 401) {
-            this.invalidCredentials = true;
-          }
+  authService
+    .login(this.user)
+    .then((response) => {
+      if (response.status == 200) {
+        this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+        this.$store.commit("SET_USER", response.data.user);
+       
+       MovieService.getUserPrefs(response.data.user.id).then((response) => {
+          this.$store.commit("SET_USER_PREFS", response.data);
         });
-    },
+        
+        // Check if the user has any preferences and redirect accordingly
+        if (this.$store.state.user.preferences.length > 0) {
+          this.$router.push("/recommended-movies");
+        } else {
+          this.$router.push("/all-movies");
+        }
+      }
+    })
+    .catch((error) => {
+      const response = error.response;
+
+      if (response.status === 401) {
+        this.invalidCredentials = true;
+      }
+    });
+},
   },
 };
 </script>
