@@ -32,11 +32,11 @@ export default {
     return axios.get(`/movies/genres/${genreId}`);
   },
 
-  getFavorites(id) {
-    return axios.get(`/userMovies/${id}/favorites`);
+  getFavorites(user) {
+    return axios.get(`/userMovies/${user.id}/favorites`);
   },
-  getWatchlist(id) {
-    return axios.get(`/userMovies/${id}/watchlist`);
+  getWatchlist(user) {
+    return axios.get(`/userMovies/${user.id}/watchlist`);
   }
 
 

@@ -1,50 +1,30 @@
 <template>
   <div class="my-movies">
-    <h1>Movies</h1>
-    <div>
-      <h2>My Favorites</h2>
-      <div class="movies">
-        <movie-card
-          v-for="movie in getFavorites"
-          :key="movie.id"
-          :movie="movie"
-        />
-      </div>
-    </div>
-    <div>
-      <h2>My Watchlist</h2>
-      <div class="movies">
-        <movie-card
-          v-for="movie in getWatchlist"
-          :key="movie.id"
-          :movie="movie"
-        />
-      </div>
-    </div>
+    <h1>My Movies</h1>
+
+    <h2>Favorites</h2>
+    <favorites class="movies" />
+    <h2>Watchlist</h2>
+    <watchlist class="movies" />
   </div>
 </template>
 
 <script>
-import MovieCard from "../components/MovieCard.vue";
+import Favorites from "../components/Favorites.vue";
+import Watchlist from "../components/Watchlist.vue";
 export default {
   name: "my-movies",
   components: {
-    MovieCard,
-  },
-  computed: {
-    getFavorites() {
-      return this.$store.state.userMovies.favorites;
-    },
-    getWatchlist() {
-      return this.$store.state.userMovies.watchlist;
-    },
+    Favorites,
+    Watchlist,
   },
 };
 </script>
 
 <style scoped>
-.movies {
+.my-movies {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
 }
 </style>
