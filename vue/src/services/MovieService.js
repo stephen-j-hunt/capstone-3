@@ -40,11 +40,22 @@ export default {
   },
 
   getFavorites(user) {
-    return axios.get(`/userMovies/${user.id}/favorites`);
+    return axios.get(`/users/${user.id}/favorites`);
   },
+
+  addFavorite(user, movie) {
+    return axios.post(`/users/${user.id}/favorites`, movie);
+  },
+
+  deleteFavorite(user, movie) {
+    return axios.delete(`/users/${user.id}/favorites/${movie.id}`);
+  },
+
   getWatchlist(user) {
-    return axios.get(`/userMovies/${user.id}/watchlist`);
-  }
+    return axios.get(`/users/${user.id}/watchlist`);
+  },
+
+
 
 
 

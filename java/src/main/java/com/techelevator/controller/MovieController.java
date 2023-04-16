@@ -32,13 +32,12 @@ public class MovieController {
     @GetMapping("/movies/genres/{genreId}")
     public List <Movie> getMoviesByGenreId(@PathVariable int genreId) {return this.movieDao.getMoviesByGenreId(genreId);}
 
-
     @GetMapping("/genres")
     public List<Genre> getAllGenres() {
         return this.genreDao.getAllGenres();
     }
 
-    @GetMapping("/userMovies/{id}/favorites")
+    @GetMapping("/users/{id}/favorites")
     public List<Movie> getFavoriteMovies(@PathVariable int id) {
         return this.userMoviesDao.getFavoriteMovies(id);
     }
@@ -48,10 +47,7 @@ public class MovieController {
         return this.userMoviesDao.getWatchlist(id);
     }
 
-    @PutMapping("/userMovies")
-    public void setUserMovies(@RequestBody UserMovies userMovies) {
-        this.userMoviesDao.setUserMovies(userMovies);
-    }
+
 
 
 
