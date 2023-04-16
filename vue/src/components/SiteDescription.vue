@@ -2,7 +2,7 @@
   <div class="site-description">
     <h2>Elevate Your Cinematic Taste</h2>
     <p>
-      This site gives you recommendations based on your favorite movie genres!
+      This site gives you recommendations based on your favorite movie-genres!
     </p>
   </div>
 </template>

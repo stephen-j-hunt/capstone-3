@@ -18,35 +18,31 @@ export default {
 @import url("https://fonts.cdnfonts.com/css/cinema-st");
 
 .header-container {
+  /* position: relative; */
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   height: 100%;
   background: rgb(121, 12, 4);
   background: radial-gradient(circle, rgb(199, 7, 42) 5%, rgb(36, 4, 10) 70%);
-  /* background-color: #d80000; */
-  /* background-color: rgb(0, 0, 0); */
 }
 
 img {
   margin-left: 1rem;
   margin-right: 1rem;
-  /* object-fit: contain; */
   padding: 20px;
   height: 110%;
   margin-top: 15px;
 }
 
 .title {
-  display: inline-block;
-
-  /* position: absolute;
-  justify-content: center; */
+  display: flex;
+  justify-content: center;
   font-family: "Cinema St", sans-serif;
-  color: white;
-  /* margin-left: 40rem; */
-  margin-top: 1rem;
-  font-size: 5rem; /* Adjust the font size here */
+  color: black;
+  flex: 1;
+  font-size: 6rem;
+  text-align: center;
+  margin-top: 1.2rem;
 }
 </style>
 
