@@ -1,7 +1,10 @@
 <template>
   <div id="nav">
     <!-- your router-links go here -->
-    <router-link v-bind:to="{ name: 'home' }" class="nav-link"
+    <router-link
+      v-bind:to="{ name: 'home' }"
+      class="nav-link"
+      v-if="$store.state.token === ''"
       >Home</router-link
     >
     <router-link
@@ -53,7 +56,7 @@ export default {
 #nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   /* align-items: stretch; */
   background-color: #d80000;
   /* background-color: rgb(0, 0, 0); */
@@ -77,6 +80,8 @@ export default {
 .router-link-exact-active {
   font-weight: bolder;
   color: white; /* active link color */
+  border-radius: 30px;
+  border: 2px solid gold;
 }
 /* .logout {
   margin-top: 530px;

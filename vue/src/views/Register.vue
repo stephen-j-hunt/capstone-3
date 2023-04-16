@@ -118,16 +118,18 @@ p {
   text-align: center;
 }
 .login-link {
-  color: gold;
+  color: #ffc107;
   font-size: 20px;
 }
 
 .create-acc-btn {
   padding: 5px 25px;
   font-size: 16px;
+  background-color: #ffc107;
+  border-radius: 6px;
 }
 .create-acc-btn:hover {
-  background-color: gold;
+  background-color: wheat;
   cursor: pointer;
 }
 </style>

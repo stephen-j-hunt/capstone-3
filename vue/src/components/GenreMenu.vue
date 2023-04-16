@@ -64,6 +64,7 @@ export default {
   justify-content: center;
   padding-top: 20px;
 }
+
 .genre-table {
   display: flex;
   justify-content: center;
@@ -80,9 +81,12 @@ input {
 }
 button {
   padding: 8px;
+  background-color: #ffc107;
+  border-radius: 6px;
+  font-size: 14px;
 }
 button:hover {
-  background-color: yellow;
+  background-color: wheat;
 }
 </style>
 

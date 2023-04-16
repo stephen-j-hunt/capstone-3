@@ -57,7 +57,7 @@ export default {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
+            this.$router.push("/my-account");
           }
         })
         .catch((error) => {
@@ -86,7 +86,7 @@ form {
   border-radius: 20px;
   margin: 20px;
   padding: 50px 100px;
-   background-color: rgb(51, 49, 49);
+  background-color: rgb(51, 49, 49);
 }
 h1 {
   text-align: center;
@@ -101,7 +101,7 @@ p {
   text-align: center;
 }
 .register-link {
-  color: gold;
+  color: #ffc107;
   font-size: 18px;
 }
 .submit-button {
@@ -110,9 +110,11 @@ p {
 .submit-button > button {
   padding: 5px 25px;
   font-size: 16px;
+  border-radius: 6px;
+  background-color: #ffc107;
 }
 .sign-in:hover {
-  background-color: gold;
+  background-color: wheat;
   cursor: pointer;
 }
 </style>

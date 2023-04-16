@@ -54,20 +54,31 @@ div.card {
   margin-left: 15px;
   margin-bottom: 25px;
   background-color: rgb(51, 49, 49);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .card-btns {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  margin: 5px;
 }
 .card-btns button {
   border-radius: 6px;
+  background-color: #ffc107;
+  font-size: 14px;
 }
 .card-btns button:hover {
-  background-color: #ffc107;
+  /* background-color: #ffc107; */
+  background-color: wheat;
   color: #333;
 }
 .card-title {
   display: block;
+}
+h4 {
+  margin: 10px;
 }
 .card-image {
   cursor: pointer;

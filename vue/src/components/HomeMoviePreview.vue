@@ -46,7 +46,8 @@ export default {
    align-items: center; */
   height: 90%;
 
-  border: 2px solid;
+  border: 2px solid gold;
+  border-radius: 10px;
   gap: 5px;
 }
 </style>

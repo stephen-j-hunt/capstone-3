@@ -37,10 +37,11 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+  margin-top: 75px;
   max-width: 800px;
   padding: 20px;
   background-color: rgb(51, 49, 49);
-  border: 10px solid #FFC107;
+  border: 10px solid #ffc107;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -52,7 +53,7 @@ export default {
   left: 20px;
   font-size: 1rem;
   font-weight: bold;
-  color: #FFC107;
+  color: #ffc107;
   background-color: transparent;
   border: none;
   cursor: pointer;
