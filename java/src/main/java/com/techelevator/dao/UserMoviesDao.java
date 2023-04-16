@@ -1,6 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.controller.UserMovies;
+import com.techelevator.model.UserMovies;
 import com.techelevator.model.Movie;
 
 import java.util.List;

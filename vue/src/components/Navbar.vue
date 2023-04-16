@@ -84,8 +84,8 @@ export default {
   border: 2px solid gold;
 }
 /* .logout {
-  margin-top: 530px;
-  border-bottom: none;
+  margin-top: 500px;
+  text-align: center;
 } */
 </style>
 

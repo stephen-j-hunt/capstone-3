@@ -43,7 +43,7 @@ img {
   display: flex;
   justify-content: center;
   font-family: "Cinema St", sans-serif;
-  color: black;
+  color: white;
   margin-left: 1.75rem;
   font-size: 5rem; /* Adjust the font size here */
 }

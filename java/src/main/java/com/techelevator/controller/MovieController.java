@@ -2,10 +2,8 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.GenreDao;
 import com.techelevator.dao.MovieDao;
-import com.techelevator.dao.UserDao;
 import com.techelevator.dao.UserMoviesDao;
 import com.techelevator.model.*;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
