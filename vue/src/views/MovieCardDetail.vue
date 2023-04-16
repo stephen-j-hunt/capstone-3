@@ -48,13 +48,16 @@ export default {
 }
 
 .back-btn {
-  position: absolute;
+  /* position: absolute; */
   bottom: 20px;
   left: 20px;
+  width: 11%;
   font-size: 1rem;
   font-weight: bold;
-  color: #ffc107;
-  background-color: transparent;
+  color: black;
+
+  background-color: #ffc107;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
 }
