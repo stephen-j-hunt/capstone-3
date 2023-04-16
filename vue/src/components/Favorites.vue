@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     getFavorites() {
-      return this.$store.state.userMovies.favorites;
+      return this.$store.state.favorites;
     },
   },
 };
