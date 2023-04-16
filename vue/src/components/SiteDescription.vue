@@ -1,7 +1,9 @@
 <template>
   <div class="site-description">
     <h2>Elevate Your Cinematic Taste</h2>
-    <p>We can give you recommendations based on your favorite genres</p>
+    <p>
+      This site gives you recommendations based on your favorite movie genres!
+    </p>
   </div>
 </template>
 

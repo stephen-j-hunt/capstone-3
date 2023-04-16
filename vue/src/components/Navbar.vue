@@ -58,7 +58,9 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   /* align-items: stretch; */
-  background-color: #d80000;
+  background: rgb(121, 12, 4);
+  background: radial-gradient(circle, rgb(199, 7, 42) 5%, rgb(36, 4, 10) 70%);
+  /* background-color: #d80000; */
   /* background-color: rgb(0, 0, 0); */
   font-size: 1.4rem;
 }
