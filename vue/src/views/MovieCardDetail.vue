@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-card-details-container">
+  <div class="movie-card-details-container" v-if="movie != null">
     <h1 class="movie-title">{{ movie.title }}</h1>
     <img class="movie-image" :src="movie.poster" :alt="movie.title" />
     <h3 class="movie-release-date">{{ movie.releaseDate }}</h3>

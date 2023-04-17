@@ -12,10 +12,9 @@
           <td>
             <input
               type="checkbox"
-              name="genreId"
-              :value="genre.id"
-              :checked="$store.state.user.preferences.includes(genre.id)"
-              @change="updateLocalPreferences(genre.id)"
+              v-bind:id="genre.id"
+              v-bind:value="genre.id"
+              v-model="$store.state.user.preferences"
             />
           </td>
         </tr>
