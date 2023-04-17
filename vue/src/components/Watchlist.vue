@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     getWatchlist() {
-      return this.$store.state.userMovies.watchlist;
+      return this.$store.state.watchlist;
     },
   },
 };

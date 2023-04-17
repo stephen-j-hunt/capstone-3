@@ -22,12 +22,20 @@
       >
         Remove Favorite
       </button>
+      
       <button
+        v-if="isOnWatchlist === false"
         class="add-to-watchlist-btn"
-        title="Add to Watchlist"
-        @click="addToWatchlist"
+        @click="addMovieToWatchlist"
       >
         +
+      </button>
+      <button
+        v-else-if="isOnWatchlist === true"
+        class= "remove-watchlist-btn"
+        @click="deleteMovieFromWatchlist">
+
+        -
       </button>
     </div>
   </div>
@@ -49,6 +57,15 @@ export default {
         return false;
       }
     },
+    isOnWatchlist() {
+      if(
+        this.$store.state.watchlist.find((movie) => movie.id == this.movie.id)
+      ) {
+        return true;
+      }else {
+        return false;
+      }
+    }
   },
   methods: {
     navigateToDetail() {
