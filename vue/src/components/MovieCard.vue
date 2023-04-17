@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-image" @click="navigateToDetail">
-      <img v-bind:src="movie.poster" alt="" />
+      <img v-bind:src="movie.poster" class="poster" alt="" />
     </div>
     <div class="card-title">
       <h4>{{ movie.title }}</h4>
@@ -118,5 +118,8 @@ h4 {
 .card-image {
   cursor: pointer;
   object-fit: contain;
+}
+.poster {
+  width: 115px;
 }
 </style>

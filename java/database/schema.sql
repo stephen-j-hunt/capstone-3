@@ -13,9 +13,9 @@ CREATE TABLE users (
 
 create table movies (
   	id INT PRIMARY KEY,
-  	title VARCHAR(50),
+  	title VARCHAR(250),
   	release_date DATE,
-  	poster VARCHAR(50),
+  	poster VARCHAR(250),
   	overview TEXT
   );
 
