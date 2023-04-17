@@ -57,8 +57,7 @@ public class UsersController {
     public void deleteFavorite(@PathVariable int userId, @PathVariable int movieId) {
         userMoviesDao.removeFavoriteForUser(userId, movieId);
     }
-
-
+    
     //gets a list of user's watchlist movies
     @GetMapping("/users/{id}/watchlist")
     public List<Movie> getWatchlist(@PathVariable int id) {
