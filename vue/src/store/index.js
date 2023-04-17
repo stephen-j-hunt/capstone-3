@@ -85,9 +85,6 @@ export default new Vuex.Store({
     SET_GENRES(state, genres) {
       state.genres = genres;
     },
-    SET_USER_MOVIES(state, userMovies) {
-      state.userMovies = userMovies;
-    },
 
     SET_USER_PREFS(state, preferences) {
       state.user.preferences = preferences;

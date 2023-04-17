@@ -33,9 +33,10 @@ export default {
       return this.$store.getters.getUser;
     },
     genreName() {
-      return this.$store.state.genres.find((genre) => {
+      const variable = this.$store.state.genres.find((genre) => {
         return genre.id == this.genreId;
-      }).genreName;
+      });
+      return variable ? variable.genreName : "";
     },
   },
   created() {
