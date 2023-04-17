@@ -22,8 +22,24 @@ export default new Vuex.Store({
     user: currentUser || {},
     genres: [],
     movies: [],
-    favorites: [],
-    watchlist: [],
+    favorites: [
+      {
+        id: "",
+        title: "",
+        releaseDate: "",
+        poster: "",
+        overview: ""
+      }
+    ],
+    watchlist: [
+      {
+        id: "",
+        title: "",
+        releaseDate: "",
+        poster: "",
+        overview: ""
+      }
+    ],
   },
   getters: {
     getRandomMovies: state => {

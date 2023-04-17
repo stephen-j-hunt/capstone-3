@@ -7,8 +7,19 @@
       <h4>{{ movie.title }}</h4>
     </div>
     <div class="card-btns">
-      <button class="add-favorite-btn" @click="addToFavorites">Favorite</button>
-      <button v-if="isFavorite" class="remove-favorite-btn">
+      <button
+        v-if="isFavorite === false"
+        class="add-favorite-btn"
+        @click="addToFavorites"
+      >
+        Favorite
+        <!-- {{ isFavorite ? "Remove Favorite" : "Favorite" }} -->
+      </button>
+      <button
+        v-else-if="isFavorite === true"
+        class="remove-favorite-btn"
+        @click="removeFromFavorites"
+      >
         Remove Favorite
       </button>
       <button
@@ -27,14 +38,18 @@ import MovieService from "../services/MovieService";
 export default {
   name: "movie-card",
   props: ["movie"],
-  // computed: {
-  //   // need to have a computed to see if it is in the favorites list
-  //   isFavorite() {
-  //     return this.$store.state.favorites.some(
-  //       (favorite) => favorite.id === this.movie.id
-  //     );
-  //   },
-  // },
+  computed: {
+    isFavorite() {
+      // favorites is an array of movie objects
+      if (
+        this.$store.state.favorites.find((movie) => movie.id === this.movie.id)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
   methods: {
     navigateToDetail() {
       this.$router.push({

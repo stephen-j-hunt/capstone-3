@@ -43,32 +43,17 @@ export default {
   },
   methods: {
     updatePreferences() {
-     MovieService.addUserPrefs(this.$store.state.user).then(() => {
-    // Save user preferences to local storage
-    localStorage.setItem(
-      "user_preferences",
-      JSON.stringify(this.$store.state.user.preferences)
-    );
-    window.alert("Genre Preferences saved");
-  });
-},
-// updateLocalPreferences(genreId) {
-//       if (this.$store.state.user.preferences.includes(genreId)) {
-//         const newPreferences = this.$store.state.user.preferences.filter(
-//           (pref) => pref !== genreId
-//         );
-//         this.$store.commit("SET_USER_PREFS", newPreferences);
-//       } else {
-//         this.$store.commit("SET_USER_PREFS", [
-//           ...this.$store.state.user.preferences,
-//           genreId,
-//         ]);
-//       }
-//     },
-  }
-  ,
+      MovieService.addUserPrefs(this.$store.state.user).then(() => {
+        // Save user preferences to local storage
+        localStorage.setItem(
+          "user_preferences",
+          JSON.stringify(this.$store.state.user.preferences)
+        );
+        window.alert("Genre Preferences saved");
+      });
+    },
+  },
 };
-
 </script>
 <style scoped>
 .genre-menu {
