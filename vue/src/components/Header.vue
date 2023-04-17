@@ -1,7 +1,7 @@
 <template>
   <!-- <header> -->
   <div class="header-container">
-    <img src="../assets/logo.png" alt="logo" />
+    <img src="../assets/movieclapboard.png" alt="logo" />
     <!-- <router-link to="/" class="logo-link"> -->
     <!-- </router-link> -->
     <div class="title">Movie Elevator</div>
@@ -30,14 +30,13 @@ export default {
   background: rgb(121, 12, 4);
   background: radial-gradient(circle, rgb(199, 7, 42) 5%, rgb(36, 4, 10) 70%);
 }
-
 img {
   margin-left: 1rem;
   margin-right: 1rem;
   padding: 20px;
-  height: 90%;
+  height: 110%;
+  margin-top: 15px;
 }
-
 .title {
   display: flex;
   justify-content: center;
@@ -48,5 +47,7 @@ img {
   text-align: center;
   margin-top: 1.2rem;
 }
+
+
 </style>
 
