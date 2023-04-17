@@ -36,14 +36,7 @@ export default {
       const variable = this.$store.state.genres.find((genre) => {
         return genre.id == this.genreId;
       });
-<<<<<<< HEAD
       return variable ? variable.genreName : "";
-=======
-      return variable ? variable.genreName : '';
-
-
-
->>>>>>> amyy
     },
   },
   created() {
