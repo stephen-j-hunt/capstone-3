@@ -12,6 +12,7 @@
 <script>
 import Favorites from "../components/Favorites.vue";
 import Watchlist from "../components/Watchlist.vue";
+
 export default {
   name: "my-movies",
   components: {

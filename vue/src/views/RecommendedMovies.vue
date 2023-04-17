@@ -14,27 +14,27 @@
 </template>
 
 <script>
-import Vue from "vue";
-import MovieList from "../components/MovieList.vue";
-import VModal from "vue-js-modal";
 
-Vue.use(VModal);
+import MovieList from "../components/MovieList.vue";
+import MovieCardDetail from "../views/MovieCardDetail.vue"
+
+
 
 export default {
   name: "recommended-movies",
   components: {
     MovieList,
   },
-  created() {
-    this.$modal.registerComponent("movie-card-detail", () =>
-      import("../views/MovieCardDetail.vue")
-    );
+  data(){
+    return {
+      dynamicComponent: MovieCardDetail,
+      selectedMovie: null,
+    };
   },
-  beforeDestroy() {
-    this.$modal.unregisterComponent("movie-card-detail");
-  },
+
   methods: {
     showMovieDetail(movie) {
+      this.selectedMovie = movie;
       this.$modal.show("movie-card-detail", { movie });
     },
   },

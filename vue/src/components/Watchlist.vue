@@ -12,6 +12,8 @@
 
 <script>
 import MovieCard from "../components/MovieCard.vue";
+import MovieService from '../services/MovieService';
+
 export default {
   components: {
     MovieCard,
@@ -20,6 +22,11 @@ export default {
     getWatchlist() {
       return this.$store.state.watchlist;
     },
+  },
+  created() {
+    MovieService.getWatchlist(this.$store.state.user).then((response) => {
+      this.$store.commit("SET_WATCHLIST", response.data);
+    });
   },
 };
 </script>
