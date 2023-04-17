@@ -55,6 +55,13 @@ export default {
     return axios.get(`/users/${user.id}/watchlist`);
   },
 
+  addToWatchlist(user, movie) {
+    return axios.post(`/users/${user.id}/watchlist`, movie);
+  },
+  deleteFromWatchlist(user, movie) {
+    return axios.delete(`/users/${user.id}/watchlist/${movie.id}`);
+  }
+
 
 
 

@@ -13,13 +13,13 @@ import java.util.List;
 public class MovieController {
     private final MovieDao movieDao;
     private final GenreDao genreDao;
-    private final UserMoviesDao userMoviesDao;
+//    private final UserMoviesDao userMoviesDao;
 
 
-    public MovieController(MovieDao movieDao, GenreDao genreDao, UserMoviesDao userMoviesDao) {
+    public MovieController(MovieDao movieDao, GenreDao genreDao) {
         this.movieDao = movieDao;
         this.genreDao = genreDao;
-        this.userMoviesDao = userMoviesDao;
+//        this.userMoviesDao = userMoviesDao;
 
     }
 
@@ -41,17 +41,17 @@ public class MovieController {
         return this.genreDao.getAllGenres();
     }
 
-    //gets a list of favorite movies for a user
-    @GetMapping("/users/{id}/favorites")
-    public List<Movie> getFavoriteMovies(@PathVariable int id) {
-        return this.userMoviesDao.getFavoriteMovies(id);
-    }
-
-    //gets a list of user's watchlist movies
-    @GetMapping("/users/{id}/watchlist")
-    public List<Movie> getWatchlist(@PathVariable int id) {
-        return this.userMoviesDao.getWatchlist(id);
-    }
+//    //gets a list of favorite movies for a user
+//    @GetMapping("/users/{id}/favorites")
+//    public List<Movie> getFavoriteMovies(@PathVariable int id) {
+//        return this.userMoviesDao.getFavoriteMovies(id);
+//    }
+//
+//    //gets a list of user's watchlist movies
+//    @GetMapping("/users/{id}/watchlist")
+//    public List<Movie> getWatchlist(@PathVariable int id) {
+//        return this.userMoviesDao.getWatchlist(id);
+//    }
 
 
 

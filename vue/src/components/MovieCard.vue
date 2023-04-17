@@ -69,8 +69,19 @@ export default {
         }
       );
     },
-    addToWatchlist() {
-      this.$store.commit("ADD_TO_WATCHLIST", this.movie);
+    addMovieToWatchlist() {
+      MovieService.addToWatchlist(this.$store.state.user, this.movie).then(
+        () => {
+          this.$store.commit("ADD_TO_WATCHLIST", this.movie);
+        }
+      );
+    },
+    deleteMovieFromWatchlist() {
+      MovieService.deleteFromWatchlist(this.$store.state.user, this.movie).then(
+        () => {
+          this.$store.commit("DELETE_FROM_WATCHLIST", this.movie);
+        }
+      );
     },
   },
 };
