@@ -114,6 +114,14 @@ export default new Vuex.Store({
     //add to watchlist
     ADD_TO_WATCHLIST(state, movie) {
       state.watchlist.push(movie);
+    },
+    DELETE_FROM_WATCHLIST(state, movie) {
+      const index = state.watchlist.findIndex(
+        (watchlistMovie) => watchlistMovie.id === movie.id
+      );
+      if (index !== -1) {
+        state.watchlist.splice(index, 1);
+      }
     }
 
   }

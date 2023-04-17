@@ -85,7 +85,7 @@ public class JdbcUserMoviesDao implements UserMoviesDao{
     //returns the user's watchlist movies from user_watchlist table
     @Override
     public List<Movie> getWatchlist(int userId) {
-        String sql = "SELECT * FROM movies JOIN user_movies ON movies.id = user_movies.movie_id WHERE user_movies.user_id = ? AND watchlist = true";
+        String sql = "SELECT * FROM movies JOIN user_watchlist ON movies.id = user_watchlist.movie_id WHERE user_watchlist.user_id = ?;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         List<Movie> watchlist = new ArrayList<>();
@@ -95,6 +95,22 @@ public class JdbcUserMoviesDao implements UserMoviesDao{
         }
 
         return watchlist;
+
+    }
+
+    //adds a movie to the user_watchlist table by userId and movieId
+    @Override
+    public void addMovieToWatchlistForUser(int userId, int movieId) {
+        String sql = "INSERT INTO user_watchlist(user_id, movie_id) VALUES(?, ?) on conflict do nothing;";
+
+        jdbcTemplate.update(sql, userId, movieId);
+
+    }
+
+    @Override
+    public void removeMovieFromWatchlistForUser(int userId, int movieId) {
+        String sql = "DELETE FROM user_watchlist WHERE user_id = ? AND movie_id = ?;";
+        jdbcTemplate.update(sql, userId, movieId);
 
     }
 }

@@ -40,6 +40,12 @@ public class UsersController {
         userDao.addUserPreferences(userId, preferences);
     }
 
+    //gets a list of favorite movies for a user
+    @GetMapping("/users/{id}/favorites")
+    public List<Movie> getFavoriteMovies(@PathVariable int id) {
+        return this.userMoviesDao.getFavoriteMovies(id);
+    }
+
     //adds a movie to user_favorites table
     @PostMapping("/users/{userId}/favorites")
     public void addFavorite(@PathVariable int userId, @RequestBody Movie movie) {
@@ -53,5 +59,22 @@ public class UsersController {
     }
 
 
+    //gets a list of user's watchlist movies
+    @GetMapping("/users/{id}/watchlist")
+    public List<Movie> getWatchlist(@PathVariable int id) {
+        return this.userMoviesDao.getWatchlist(id);
+    }
+
+    //adds a movie to user_watchlist table
+    @PostMapping("/users/{userId}/watchlist")
+    public void addToWatchlist(@PathVariable int userId, @RequestBody Movie movie) {
+        userMoviesDao.addMovieToWatchlistForUser(userId, movie.getId());
+    }
+
+    //deletes a favorite movie from user_watchlist for that user
+    @DeleteMapping("/users/{userId}/watchlist/{movieId}")
+    public void deleteMovieFromWatchlist(@PathVariable int userId, @PathVariable int movieId) {
+        userMoviesDao.removeMovieFromWatchlistForUser(userId, movieId);
+    }
 
 }
