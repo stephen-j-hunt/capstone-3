@@ -13,7 +13,6 @@ public class Movie {
     public Movie(int id, String title, LocalDate releaseDate, String poster, String overview) {
         this.id = id;
         this.title = title;
-        //this.genre = genre;
         this.releaseDate = releaseDate;
         this.poster = poster;
         this.overview = overview;
@@ -27,9 +26,7 @@ public class Movie {
         return title;
     }
 
-//    public String getGenre() {
-//        return genre;
-//    }
+
 
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -43,7 +40,6 @@ public class Movie {
         return overview;
     }
 
-
     public void setId(int id) {
         this.id = id;
     }
@@ -51,10 +47,6 @@ public class Movie {
     public void setTitle(String title) {
         this.title = title;
     }
-
-//    public void setGenre(String genre) {
-//        this.genre = genre;
-//    }
 
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;

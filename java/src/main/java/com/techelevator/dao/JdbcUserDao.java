@@ -39,6 +39,7 @@ public class JdbcUserDao implements UserDao {
         return userId;
     }
 
+    // returns a user by their Id
 	@Override
 	public User getUserById(int userId) {
 		String sql = "SELECT * FROM users WHERE user_id = ?";
@@ -57,6 +58,7 @@ public class JdbcUserDao implements UserDao {
 		}
 	}
 
+    // deletes the user's preferences from user_genre table and re-adds the new preferences
     @Override
     public void addUserPreferences(int userId, List<Integer> preferences) {
         String sql1 = "DELETE FROM user_genre WHERE user_id = ?;";
@@ -68,6 +70,7 @@ public class JdbcUserDao implements UserDao {
         }
     }
 
+    //returns a list of all users
     @Override
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
@@ -95,6 +98,7 @@ public class JdbcUserDao implements UserDao {
         throw new UsernameNotFoundException("User " + username + " was not found.");
     }
 
+    //creates a new user
     @Override
     public boolean create(String username, String password, String role) {
         String insertUserSql = "insert into users (username,password_hash,role) values (?,?,?)";

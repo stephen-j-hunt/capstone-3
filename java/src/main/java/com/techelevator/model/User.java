@@ -14,20 +14,20 @@ public class User {
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
    private List<Integer> preferences = new ArrayList<>();
-   private List<Integer> favoriteMovies = new ArrayList<>();
-   private List<Integer> watchlist = new ArrayList<>();
+//   private List<Integer> favoriteMovies = new ArrayList<>();
+//   private List<Integer> watchlist = new ArrayList<>();
 
    public List<Integer> getPreferences() {
       return preferences;
    }
 
-   public List<Integer> getFavoriteMovies() {
-      return favoriteMovies;
-   }
-
-   public List<Integer> getWatchlist() {
-      return watchlist;
-   }
+//   public List<Integer> getFavoriteMovies() {
+//      return favoriteMovies;
+//   }
+//
+//   public List<Integer> getWatchlist() {
+//      return watchlist;
+//   }
 
    public User() { }
 

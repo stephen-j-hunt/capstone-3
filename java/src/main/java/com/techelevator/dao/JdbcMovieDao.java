@@ -20,6 +20,7 @@ public class JdbcMovieDao implements MovieDao{
         this.jdbcTemplate =  new JdbcTemplate(dataSource);
     }
 
+    // returns a list of all Movies in the movie table
     @Override
     public List<Movie> getAll() {
         final String sql = "SELECT id, title, release_date, overview, poster\n" +
@@ -36,6 +37,7 @@ public class JdbcMovieDao implements MovieDao{
         return movies;
     }
 
+    // returns a movie by its ID
     @Override
     public Movie getMovieById(int id) {
         final String sql = "SELECT id, title, release_date, overview, poster\n" +
@@ -51,6 +53,7 @@ public class JdbcMovieDao implements MovieDao{
 
     }
 
+    // returns a list of movies for a specified genre
     @Override
     public List<Movie> getMoviesByGenreId(int genreId) {
         final String sql = "SELECT * FROM movies\n" +

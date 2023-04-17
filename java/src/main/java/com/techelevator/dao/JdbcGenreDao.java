@@ -19,7 +19,7 @@ public class JdbcGenreDao implements GenreDao{
         this.jdbcTemplate =  new JdbcTemplate(dataSource);
     }
 
-
+    // returns a list of all genres from the genre table
     @Override
     public List<Genre> getAllGenres() {
         final String sql = "SELECT genre_id, genre_name\n" +
@@ -34,6 +34,7 @@ public class JdbcGenreDao implements GenreDao{
         return genres;
     }
 
+    //returns a list of genres in user_genre table by userId
     @Override
     public List<Genre> getGenreByUserId(int id) {
         final String sql = "select genre.genre_id, genre_name \n" +
@@ -49,6 +50,8 @@ public class JdbcGenreDao implements GenreDao{
         return genres;
     }
 
+    //adds a genre to user_genre table for that user
+    // this is not being used? the "addUserPreferences" in JdbcUserDao does this now
     @Override
     public boolean create(int userId, int genreId) {
         String insertSql = "insert into user_genre (user_id, genre_id) values (?,?)";

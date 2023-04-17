@@ -50,6 +50,7 @@ public class JdbcUserMoviesDao implements UserMoviesDao{
 //
 //    }
 
+    //returns a user's favorite movies from user_favorites table
     @Override
     public List<Movie> getFavoriteMovies(int userId) {
         String sql = "SELECT * FROM movies JOIN user_favorites ON movies.id = user_favorites.movie_id WHERE user_favorites.user_id = ?;";
@@ -64,6 +65,24 @@ public class JdbcUserMoviesDao implements UserMoviesDao{
         return favoriteMovies;
     }
 
+    //adds a movie to a user_favorites table by userId and the movieId
+    @Override
+    public void addFavoriteForUser(int userId, int movieId) {
+        String sql = "INSERT INTO user_favorites(user_id, movie_id) VALUES(?, ?) on conflict do nothing;";
+
+        jdbcTemplate.update(sql, userId, movieId);
+
+    }
+
+    // removes a movie from the user_favorites table by userId and movieId
+    @Override
+    public void removeFavoriteForUser(int userId, int movieId) {
+        String sql = "DELETE FROM user_favorites WHERE user_id = ? AND movie_id = ?;";
+
+        jdbcTemplate.update(sql, userId, movieId);
+    }
+
+    //returns the user's watchlist movies from user_watchlist table
     @Override
     public List<Movie> getWatchlist(int userId) {
         String sql = "SELECT * FROM movies JOIN user_movies ON movies.id = user_movies.movie_id WHERE user_movies.user_id = ? AND watchlist = true";
@@ -77,20 +96,5 @@ public class JdbcUserMoviesDao implements UserMoviesDao{
 
         return watchlist;
 
-    }
-
-    @Override
-    public void addFavoriteForUser(int userId, int movieId) {
-        String sql = "INSERT INTO user_favorites(user_id, movie_id) VALUES(?, ?) on conflict do nothing;";
-
-        jdbcTemplate.update(sql, userId, movieId);
-
-    }
-
-    @Override
-    public void removeFavoriteForUser(int userId, int movieId) {
-        String sql = "DELETE FROM user_favorites WHERE user_id = ? AND movie_id = ?;";
-
-        jdbcTemplate.update(sql, userId, movieId);
     }
 }
