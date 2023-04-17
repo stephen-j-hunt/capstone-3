@@ -120,6 +120,7 @@ h4 {
   object-fit: contain;
 }
 .poster {
-  width: 115px;
+  height: 150px;
+  width: 100px;
 }
 </style>

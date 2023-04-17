@@ -31,6 +31,7 @@
         class="nav-link"
         >Recommended Movies</router-link
       >
+
       <router-link
         v-bind:to="{ name: 'all-movies' }"
         v-if="$store.state.token !== ''"
@@ -72,13 +73,11 @@ export default {
   color: inherit;
   padding: 0.8rem 0;
 }
-
-.top-4:hover {
+.top-4 > .nav-link:hover {
   background-color: #f5f5f580;
   border-radius: 30px;
   color: gold;
 }
-
 .router-link-exact-active {
   font-weight: bolder;
   color: white;
@@ -99,4 +98,5 @@ export default {
   color: gold;
 }
 </style>
+
 
