@@ -39,14 +39,16 @@
         >All Movies</router-link
       >
     </div>
-    <div class="logout">
+    
+      <!--Slot acts as a 'hole' for nav-link styling-->
+    <slot class="logout"> 
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token !== ''"
         class="nav-link"
         >Logout</router-link
       >
-    </div>
+    </slot>
   </div>
 </template>
 
@@ -71,9 +73,9 @@ export default {
   text-decoration: none;
   text-align: center;
   color: inherit;
-  padding: 0.8rem 0;
+  padding: 1rem;
 }
-.top-4 > .nav-link:hover {
+.nav-link:hover {
   background-color: #f5f5f580;
   border-radius: 30px;
   color: gold;
@@ -90,12 +92,7 @@ export default {
   text-decoration: none;
   text-align: center;
   color: inherit;
-  padding: 0.8rem 0;
-}
-.logout:hover {
-  background-color: #f5f5f580;
-  border-radius: 30px;
-  color: gold;
+ 
 }
 </style>
 
