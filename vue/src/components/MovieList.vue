@@ -43,7 +43,6 @@ export default {
     MovieService.getMoviesByGenreId(this.genreId).then((response) => {
       this.movies = response.data;
     });
-   
   },
 };
 </script>

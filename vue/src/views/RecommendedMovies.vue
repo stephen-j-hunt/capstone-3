@@ -16,16 +16,18 @@
 <script>
 import MovieCardDetail from "../views/MovieCardDetail.vue";
 import MovieList from "../components/MovieList.vue";
+// import MovieService from "../services/MovieService";
 
 export default {
   name: "recommended-movies",
   components: {
     MovieList,
   },
-  data(){
+  data() {
     return {
       dynamicComponent: MovieCardDetail,
       selectedMovie: null,
+      // movies: [],
     };
   },
 
@@ -35,6 +37,11 @@ export default {
       this.$modal.show("movie-card-detail");
     },
   },
+  // created() {
+  //   MovieService.getMoviesByGenreId(this.genreId).then((response) => {
+  //     this.movies = response.data;
+  //   });
+  // },
 };
 </script>
 

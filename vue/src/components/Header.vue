@@ -28,7 +28,7 @@ export default {
   align-items: center;
   height: 100%;
   background: rgb(121, 12, 4);
-  background: radial-gradient(circle, rgb(199, 7, 42) 5%, rgb(36, 4, 10) 70%);
+  background: radial-gradient(circle, rgb(121, 12, 4) 5%, rgb(36, 4, 10) 70%);
 }
 img {
   margin-left: 1rem;
@@ -41,13 +41,11 @@ img {
   display: flex;
   justify-content: center;
   font-family: "Cinema St", sans-serif;
-  color: black;
+  color: gainsboro;
   flex: 1;
   font-size: 6rem;
   text-align: center;
   margin-top: 1.2rem;
 }
-
-
 </style>
 

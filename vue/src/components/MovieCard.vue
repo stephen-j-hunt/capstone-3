@@ -7,35 +7,55 @@
       <h4>{{ movie.title }}</h4>
     </div>
     <div class="card-btns">
-      <button
+      <i
+        class="fa-sharp fa-regular fa-heart awesome-btn"
+        v-if="isFavorite === false"
+        @click="addToFavorites"
+      ></i>
+      <i
+        class="fa-solid fa-heart-circle-minus awesome-btn"
+        v-if="isFavorite === true"
+        @click="removeFromFavorites"
+      ></i>
+      <!-- <button
         v-if="isFavorite === false"
         class="add-favorite-btn"
         @click="addToFavorites"
       >
         Favorite
-      </button>
-      <button
+      </button> -->
+      <!-- <button
         v-else-if="isFavorite === true"
         class="remove-favorite-btn"
         @click="removeFromFavorites"
       >
         Remove Favorite
-      </button>
+      </button> -->
+      <i
+        class="fa-regular fa-bookmark awesome-btn"
+        v-if="isOnWatchlist === false"
+        @click="addMovieToWatchlist"
+      ></i>
+      <i
+        class="fa-solid fa-bookmark awesome-btn"
+        v-if="isOnWatchlist === true"
+        @click="deleteMovieFromWatchlist"
+      ></i>
 
-      <button
+      <!-- <button
         v-if="isOnWatchlist === false"
         class="add-to-watchlist-btn"
         @click="addMovieToWatchlist"
       >
         +
-      </button>
-      <button
+      </button> -->
+      <!-- <button
         v-else-if="isOnWatchlist === true"
         class="remove-watchlist-btn"
         @click="deleteMovieFromWatchlist"
       >
         -
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
@@ -105,7 +125,7 @@ export default {
 
 <style scoped>
 div.card {
-  border: 3px solid #ffc107;
+  border: 1px solid #ffc107;
   border-radius: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -119,6 +139,9 @@ div.card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+div.card:hover {
+  background-color: rgb(88, 86, 86);
 }
 .card-btns {
   display: flex;
@@ -149,5 +172,13 @@ h4 {
 .poster {
   height: 150px;
   width: 100px;
+}
+.awesome-btn {
+  font-size: 30px;
+  color: #ffc107;
+}
+.awesome-btn:hover {
+  cursor: pointer;
+  font-size: 34px;
 }
 </style>

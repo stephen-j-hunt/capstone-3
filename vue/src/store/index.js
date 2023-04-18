@@ -62,7 +62,7 @@ export default new Vuex.Store({
       return state.watchlist;
     }
 
- 
+
 
   },
 
@@ -119,7 +119,7 @@ export default new Vuex.Store({
       state.watchlist.push(movie);
     },
 
-    DELETE_FROM_WATCHLIST(state, movie){
+    DELETE_FROM_WATCHLIST(state, movie) {
       const index = state.watchlist.findIndex(
         (watchlistMovie) => watchlistMovie.id === movie.id
       );

@@ -39,14 +39,14 @@
         >All Movies</router-link
       >
     </div>
-    <div class="logout">
+    <slot class="logout">
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token !== ''"
         class="nav-link"
         >Logout</router-link
       >
-    </div>
+    </slot>
   </div>
 </template>
 
@@ -64,7 +64,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   background: rgb(121, 12, 4);
-  background: radial-gradient(circle, rgb(199, 7, 42) 5%, rgb(36, 4, 10) 70%);
+  background: radial-gradient(circle, rgb(121, 12, 4) 5%, rgb(36, 4, 10) 70%);
   font-size: 1.4rem;
 }
 .nav-link {
@@ -73,16 +73,17 @@ export default {
   color: inherit;
   padding: 0.8rem 0;
 }
-.top-4 > .nav-link:hover {
-  background-color: #f5f5f580;
-  border-radius: 30px;
-  color: gold;
+.nav-link:hover {
+  background-color: #f5f5f556;
+  /* border-radius: 10px;
+  color: gold; */
 }
 .router-link-exact-active {
   font-weight: bolder;
+  background-color: #f5f5f580;
   color: white;
-  border-radius: 30px;
-  border: 2px solid gold;
+  /* border-radius: 10px;
+  border: 2px solid gold; */
 }
 .logout {
   display: flex;
@@ -91,11 +92,6 @@ export default {
   text-align: center;
   color: inherit;
   padding: 0.8rem 0;
-}
-.logout:hover {
-  background-color: #f5f5f580;
-  border-radius: 30px;
-  color: gold;
 }
 </style>
 
