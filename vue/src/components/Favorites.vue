@@ -12,7 +12,7 @@
 
 <script>
 import MovieCard from "../components/MovieCard.vue";
-import MovieService from "../services/MovieService";
+// import MovieService from "../services/MovieService";
 export default {
   components: {
     MovieCard,
@@ -23,11 +23,11 @@ export default {
     },
   },
   // sets the favorites list to the store and gets it from the database when page is created
-  created() {
-    MovieService.getFavorites(this.$store.state.user).then((response) => {
-      this.$store.commit("SET_FAVORITES", response.data);
-    });
-  },
+  // created() {
+  //   MovieService.getFavorites(this.$store.state.user).then((response) => {
+  //     this.$store.commit("SET_FAVORITES", response.data);
+  //   });
+  // },
 };
 </script>
 

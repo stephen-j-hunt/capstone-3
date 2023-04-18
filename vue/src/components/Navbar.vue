@@ -39,9 +39,7 @@
         >All Movies</router-link
       >
     </div>
-    
-      <!--Slot acts as a 'hole' for nav-link styling-->
-    <slot class="logout"> 
+    <slot class="logout">
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token !== ''"
@@ -66,7 +64,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   background: rgb(121, 12, 4);
-  background: radial-gradient(circle, rgb(199, 7, 42) 5%, rgb(36, 4, 10) 70%);
+  background: radial-gradient(circle, rgb(121, 12, 4) 5%, rgb(36, 4, 10) 70%);
   font-size: 1.4rem;
 }
 .nav-link {
@@ -76,15 +74,16 @@ export default {
   padding: 1rem;
 }
 .nav-link:hover {
-  background-color: #f5f5f580;
-  border-radius: 30px;
-  color: gold;
+  background-color: #f5f5f556;
+  /* border-radius: 10px;
+  color: gold; */
 }
 .router-link-exact-active {
   font-weight: bolder;
+  background-color: #f5f5f580;
   color: white;
-  border-radius: 30px;
-  border: 2px solid gold;
+  /* border-radius: 10px;
+  border: 2px solid gold; */
 }
 .logout {
   display: flex;
@@ -92,7 +91,7 @@ export default {
   text-decoration: none;
   text-align: center;
   color: inherit;
- 
+  padding: 0.8rem 0;
 }
 </style>
 

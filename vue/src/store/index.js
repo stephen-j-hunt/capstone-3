@@ -61,9 +61,6 @@ export default new Vuex.Store({
     getWatchlist: state => {
       return state.watchlist;
     }
-
- 
-
   },
 
   mutations: {
@@ -92,10 +89,6 @@ export default new Vuex.Store({
       state.genres = genres;
     },
 
-    SET_USER_PREFS(state, preferences) {
-      state.user.preferences = preferences;
-    },
-
     SET_FAVORITES(state, favorites) {
       state.favorites = favorites;
     },
@@ -119,7 +112,7 @@ export default new Vuex.Store({
       state.watchlist.push(movie);
     },
 
-    DELETE_FROM_WATCHLIST(state, movie){
+    DELETE_FROM_WATCHLIST(state, movie) {
       const index = state.watchlist.findIndex(
         (watchlistMovie) => watchlistMovie.id === movie.id
       );

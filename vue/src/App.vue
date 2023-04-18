@@ -21,17 +21,17 @@ export default {
     navBar,
   },
   created() {
-  // Load user preferences from local storage
-  const userPreferences = localStorage.getItem("userPreferences");
-  if (userPreferences) {
-    this.$store.commit("SET_USER_PREFS", JSON.parse(userPreferences));
-  }
+    // Load user preferences from local storage
+    const userPreferences = localStorage.getItem("userPreferences");
+    if (userPreferences) {
+      this.$store.commit("SET_USER_PREFS", JSON.parse(userPreferences));
+    }
 
-  MovieService.getAllGenres().then((response) => {
-    console.log(`loaded ${response.data.length} genres`);
-    this.$store.commit("SET_GENRES", response.data);
-  });
-},
+    MovieService.getAllGenres().then((response) => {
+      console.log(`loaded ${response.data.length} genres`);
+      this.$store.commit("SET_GENRES", response.data);
+    });
+  },
 };
 </script>
 
@@ -42,7 +42,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Saira Semi Condensed", sans-serif;
-  color: white;
+  color: #ffc107;
 }
 
 #app {
@@ -66,9 +66,11 @@ Navbar {
   grid-area: main;
   width: 100%;
   height: 100%;
-  overflow: scroll;
-  background: rgb(211, 209, 218);
-  background: radial-gradient(circle, rgb(191, 191, 192) 5%, rgb(0, 0, 0) 70%);
+  overflow-y: scroll;
+  background-color: rgb(80, 59, 59);
+  background-image: url("./assets/1.png");
+  /* background: rgb(211, 209, 218);
+  background: radial-gradient(circle, rgb(191, 191, 192) 5%, rgb(0, 0, 0) 70%); */
 }
 </style>
 

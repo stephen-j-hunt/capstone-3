@@ -2,9 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.UserDao;
 import com.techelevator.dao.UserMoviesDao;
-import com.techelevator.model.Genre;
 import com.techelevator.model.Movie;
-import com.techelevator.model.Preferences;
 import com.techelevator.model.User;
 import org.springframework.web.bind.annotation.*;
 

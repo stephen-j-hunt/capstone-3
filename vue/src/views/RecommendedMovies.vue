@@ -22,7 +22,7 @@ export default {
   components: {
     MovieList,
   },
-  data(){
+  data() {
     return {
       dynamicComponent: MovieCardDetail,
       selectedMovie: null,

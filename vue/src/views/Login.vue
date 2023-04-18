@@ -52,33 +52,40 @@ export default {
   },
   methods: {
     login() {
-  authService
-    .login(this.user)
-    .then((response) => {
-      if (response.status == 200) {
-        this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-        this.$store.commit("SET_USER", response.data.user);
-       
-       MovieService.getUserPrefs(response.data.user.id).then((response) => {
-          this.$store.commit("SET_USER_PREFS", response.data);
-        });
-        
-        // Check if the user has any preferences and redirect accordingly
-        if (this.$store.state.user.preferences.length > 0) {
-          this.$router.push("/recommended-movies");
-        } else {
-          this.$router.push("/all-movies");
-        }
-      }
-    })
-    .catch((error) => {
-      const response = error.response;
+      authService
+        .login(this.user)
+        .then((response) => {
+          if (response.status == 200) {
+            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+            this.$store.commit("SET_USER", response.data.user);
 
-      if (response.status === 401) {
-        this.invalidCredentials = true;
-      }
-    });
-},
+            MovieService.getFavorites(this.$store.state.user).then(
+              (response) => {
+                this.$store.commit("SET_FAVORITES", response.data);
+                if (this.$store.state.user.preferences.length > 0) {
+                  this.$router.push("/recommended-movies");
+                } else {
+                  this.$router.push("/all-movies");
+                }
+              }
+            );
+            MovieService.getWatchlist(this.$store.state.user).then(
+              (response) => {
+                this.$store.commit("SET_WATCHLIST", response.data);
+              }
+            );
+
+            // Check if the user has any preferences and redirect accordingly
+          }
+        })
+        .catch((error) => {
+          const response = error.response;
+
+          if (response.status === 401) {
+            this.invalidCredentials = true;
+          }
+        });
+    },
   },
 };
 </script>

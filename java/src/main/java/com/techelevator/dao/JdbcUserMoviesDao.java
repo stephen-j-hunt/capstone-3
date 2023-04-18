@@ -20,36 +20,6 @@ public class JdbcUserMoviesDao implements UserMoviesDao{
     }
 
 
-//    @Override
-//    public void setUserMovies(UserMovie userMovie) {
-//        String sql = "SELECT * FROM user_movies WHERE user_id = ? AND movie_id = ?;";
-//
-//
-//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userMovie.getUserId(), userMovie.getMovieId());
-//        boolean updateWatchlist = userMovie.isWatchlist() != null && userMovie.isWatchlist();
-//        boolean updateFavorites = userMovie.isFavorite() != null && userMovie.isFavorite();
-//        if(results.next()) {
-//            if(updateWatchlist) {
-//                String sqlUpdate = "UPDATE user_movies SET watchlist = ? WHERE user_id = ? AND movie_id =?;";
-//                jdbcTemplate.update(sqlUpdate, userMovie.isWatchlist(), userMovie.getUserId(), userMovie.getMovieId());
-//            }
-//            if(updateFavorites) {
-//                String sqlUpdate2 = "UPDATE user_movies SET favorite = ? WHERE user_id = ? AND movie_id =?;";
-//                jdbcTemplate.update(sqlUpdate2, userMovie.isFavorite(), userMovie.getUserId(), userMovie.getMovieId());
-//            }
-//        } else {
-//            if (updateWatchlist) {
-//                String sql2 = "INSERT into user_movies(user_id, movie_id, watchlist) VALUES(?, ?, ?);";
-//                jdbcTemplate.update(sql2, userMovie.getUserId(), userMovie.getMovieId(), userMovie.isWatchlist());
-//            }
-//            if (updateFavorites) {
-//                String sql3 = "INSERT into user_movies(user_id, movie_id, favorite) VALUES(?, ?, ?);";
-//                jdbcTemplate.update(sql3, userMovie.getUserId(), userMovie.getMovieId(), userMovie.isFavorite());
-//            }
-//        }
-//
-//    }
-
     //returns a user's favorite movies from user_favorites table
     @Override
     public List<Movie> getFavoriteMovies(int userId) {

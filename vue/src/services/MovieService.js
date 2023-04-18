@@ -13,10 +13,6 @@ export default {
     return axios.get('/genres');
   },
 
-  // not sure if needed?
-  getGenreByUserId(id) {
-    return axios.get(`/genres/${id}`);
-  },
 
   //updates user's genre preferences
   addUserPrefs(user) {
@@ -26,9 +22,7 @@ export default {
   updateUserPrefs(userId, preferences) {
     return axios.put(`/users/${userId}/preferences`, preferences);
   },
-  getUserPrefs(userId) {
-    return axios.get(`/users/${userId}/preferences`);
-  },
+
 
   //gets a movie by its id
   getMovieById(id) {
