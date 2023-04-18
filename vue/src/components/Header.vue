@@ -41,7 +41,7 @@ img {
   display: flex;
   justify-content: center;
   font-family: "Cinema St", sans-serif;
-  color: gainsboro;
+  color: #ffc107;
   flex: 1;
   font-size: 6rem;
   text-align: center;

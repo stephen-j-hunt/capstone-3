@@ -61,9 +61,6 @@ export default new Vuex.Store({
     getWatchlist: state => {
       return state.watchlist;
     }
-
-
-
   },
 
   mutations: {
@@ -90,10 +87,6 @@ export default new Vuex.Store({
     },
     SET_GENRES(state, genres) {
       state.genres = genres;
-    },
-
-    SET_USER_PREFS(state, preferences) {
-      state.user.preferences = preferences;
     },
 
     SET_FAVORITES(state, favorites) {

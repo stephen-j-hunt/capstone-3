@@ -1,12 +1,9 @@
 package com.techelevator.dao;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import com.techelevator.model.Genre;
-import com.techelevator.model.Preferences;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -80,6 +77,12 @@ public class JdbcUserDao implements UserDao {
 
         while (results.next()) {
             User user = mapRowToUser(results);
+            String sql2 = "SELECT * FROM user_genre WHERE user_id =?;";
+            SqlRowSet rs = jdbcTemplate.queryForRowSet(sql2, user.getId());
+
+            while (rs.next()) {
+                user.getPreferences().add(rs.getInt("genre_id"));
+            }
             users.add(user);
         }
 
@@ -92,6 +95,7 @@ public class JdbcUserDao implements UserDao {
 
         for (User user : this.findAll()) {
             if (user.getUsername().equalsIgnoreCase(username)) {
+
                 return user;
             }
         }

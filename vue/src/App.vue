@@ -42,7 +42,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: "Saira Semi Condensed", sans-serif;
-  color: white;
+  color: #ffc107;
 }
 
 #app {

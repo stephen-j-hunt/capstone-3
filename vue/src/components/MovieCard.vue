@@ -13,7 +13,7 @@
         @click="addToFavorites"
       ></i>
       <i
-        class="fa-solid fa-heart-circle-minus awesome-btn"
+        class="fa-sharp fa-solid fa-heart awesome-btn"
         v-if="isFavorite === true"
         @click="removeFromFavorites"
       ></i>
@@ -161,6 +161,7 @@ div.card:hover {
 }
 .card-title {
   display: block;
+  color: white;
 }
 h4 {
   margin: 10px;
@@ -174,11 +175,11 @@ h4 {
   width: 100px;
 }
 .awesome-btn {
-  font-size: 30px;
+  font-size: 25px;
   color: #ffc107;
 }
 .awesome-btn:hover {
   cursor: pointer;
-  font-size: 34px;
+  font-size: 30px;
 }
 </style>

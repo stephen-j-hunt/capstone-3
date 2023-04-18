@@ -8,8 +8,5 @@ public interface GenreDao {
 
     List<Genre> getAllGenres();
 
-    List<Genre> getGenreByUserId(int id);
-
-    boolean create(int userId, int genreId);
 
 }
