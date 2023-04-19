@@ -6,7 +6,7 @@
     <slot class="movie-list-container" v-else>
 
       <movie-list
-        v-for="genreId in $store.state.user.preferences"
+        v-for="genreId in sortedGenres"
         :key="genreId"
         v-bind:genreId="genreId"
         @show-detail="showMovieDetail"
@@ -26,6 +26,12 @@ export default {
     MovieList,
     Loader,
   },
+  computed: {
+  sortedGenres() {
+    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+    return this.$store.state.user.preferences.sort();
+  },
+},
   data() {
     return {
       isLoading: true,
@@ -50,14 +56,6 @@ export default {
 
 <style scoped>
 h1 {
-  text-align: center;
-}
-.genre {
-  text-align: center;
-}
-.recommended-movies {
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
 </style>

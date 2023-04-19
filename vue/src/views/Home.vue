@@ -1,15 +1,10 @@
 <template>
   <div class="overlay">
     <div class="home">
-      <h1>Welcome to Movie Elevator!</h1>
+      <h1>Elevate Your Cinematic Taste!</h1>
       <!-- <p>You must be authenticated to see this</p> -->
       <site-description class="description" />
       <home-movie-preview class="preview" />
-      <h4>
-        <router-link class="reg-link" :to="{ name: 'register' }">
-          To get personalized content, Register an account now!
-        </router-link>
-      </h4>
     </div>
   </div>
 </template>
@@ -30,7 +25,8 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 h1 {
   margin-top: 0;
-  font-size: 150px;
+  margin-bottom: 0;
+  font-size: 125px;
   text-decoration: underline;
   color: #fff;
   font-family: "Sacramento", cursive;
@@ -41,7 +37,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 30vh;
 }
 .description {
   height: 20vh;
@@ -58,13 +54,6 @@ h1 {
   background-image: url("../assets/movie-collage2.jpg");
   top: 0;
   width: 100%;
-  height: 110vh;
-}
-
-.reg-link {
-  color: gold;
-  font-size: 18px;
-  padding: 5px 20px;
-  /* background-color: rgba(0, 0, 0, 0.7); */
+  height: 100%;
 }
 </style>

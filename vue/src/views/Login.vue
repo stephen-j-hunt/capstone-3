@@ -62,11 +62,6 @@ export default {
             MovieService.getFavorites(this.$store.state.user).then(
               (response) => {
                 this.$store.commit("SET_FAVORITES", response.data);
-                if (this.$store.state.user.preferences.length > 0) {
-                  this.$router.push("/recommended-movies");
-                } else {
-                  this.$router.push("/all-movies");
-                }
               }
             );
             MovieService.getWatchlist(this.$store.state.user).then(
@@ -74,6 +69,11 @@ export default {
                 this.$store.commit("SET_WATCHLIST", response.data);
               }
             );
+            if (this.$store.state.user.preferences.length > 0) {
+              this.$router.push("/recommended-movies");
+            } else {
+              this.$router.push("/all-movies");
+            }
 
             // Check if the user has any preferences and redirect accordingly
           }

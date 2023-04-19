@@ -1,21 +1,31 @@
 <template>
-  <div class="all-movies">
-    <h1 >All Movies</h1>
-    
+  <div>
+    <h1>All Movies</h1>
+    <loader id="load" v-if="isLoading"></loader>
 
+    <div class="all-movies" v-else> 
+    <div class="search-wrapper">
+      <input
+        type="search"
+        placeholder="Search Movies..."
+        class="search-bar"
+        v-model="searchText"
+      />
+      
+    </div>
     <div class="container-wrapper">
 
-    <loader class="load" v-if="isLoading"></loader>
     
-      <div class="movie-cards-container" v-else>
+      <div class="movie-cards-container" >
         <movie-card
-          v-for="movie in movies"
+          v-for="movie in filteredMovies"
           :key="movie.id"
           v-bind:movie="movie"
           @show-detail="$emit('show-detail', $event)"
         />
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -29,6 +39,7 @@ export default {
     return {
       isLoading: true,
       movies: [],
+      searchText: "",
     };
   },
   mounted() {
@@ -40,6 +51,15 @@ export default {
     MovieCard,
     Loader,
   },
+  computed: {
+    filteredMovies() {
+      return this.movies.filter((movie) => {
+        return movie.title
+          .toLowerCase()
+          .includes(this.searchText.toLowerCase());
+      });
+    },
+  },
   created() {
     MovieService.getAll().then((response) => {
       this.movies = response.data;
@@ -49,12 +69,12 @@ export default {
 </script>
 
 <style scoped>
-  #load {
+  /* #load {
     display: flex;
     flex-direction: column;
     text-align: center;
     
-  }
+  } */
 h1 {
   font-size: 50px;
   text-align: center;
@@ -68,5 +88,19 @@ h1 {
   width: 70vw;
   flex-wrap: wrap;
   justify-content: center;
+}
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.search-bar {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 300px;
 }
 </style>

@@ -11,51 +11,26 @@
         class="fa-sharp fa-regular fa-heart awesome-btn"
         v-if="isFavorite === false"
         @click="addToFavorites"
+        title="Add to Favorites"
       ></i>
       <i
         class="fa-sharp fa-solid fa-heart awesome-btn"
         v-if="isFavorite === true"
         @click="removeFromFavorites"
+        title="Remove From Favorites"
       ></i>
-      <!-- <button
-        v-if="isFavorite === false"
-        class="add-favorite-btn"
-        @click="addToFavorites"
-      >
-        Favorite
-      </button> -->
-      <!-- <button
-        v-else-if="isFavorite === true"
-        class="remove-favorite-btn"
-        @click="removeFromFavorites"
-      >
-        Remove Favorite
-      </button> -->
       <i
         class="fa-regular fa-bookmark awesome-btn"
         v-if="isOnWatchlist === false"
         @click="addMovieToWatchlist"
+        title="Add to Watchlist"
       ></i>
       <i
         class="fa-solid fa-bookmark awesome-btn"
         v-if="isOnWatchlist === true"
         @click="deleteMovieFromWatchlist"
+        title="Remove from Watchlist"
       ></i>
-
-      <!-- <button
-        v-if="isOnWatchlist === false"
-        class="add-to-watchlist-btn"
-        @click="addMovieToWatchlist"
-      >
-        +
-      </button> -->
-      <!-- <button
-        v-else-if="isOnWatchlist === true"
-        class="remove-watchlist-btn"
-        @click="deleteMovieFromWatchlist"
-      >
-        -
-      </button> -->
     </div>
   </div>
 </template>
