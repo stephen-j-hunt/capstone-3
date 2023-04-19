@@ -15,6 +15,8 @@ Vue.use(Vuex)
  */
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
+const currentFavorites = JSON.parse(localStorage.getItem('favorites'));
+const currentWatchlist = JSON.parse(localStorage.getItem('watchlist'));
 
 if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
@@ -26,24 +28,8 @@ export default new Vuex.Store({
     user: currentUser || {},
     genres: [],
     movies: [],
-    favorites: [
-      {
-        id: "",
-        title: "",
-        releaseDate: "",
-        poster: "",
-        overview: ""
-      }
-    ],
-    watchlist: [
-      {
-        id: "",
-        title: "",
-        releaseDate: "",
-        poster: "",
-        overview: ""
-      }
-    ],
+    favorites: currentFavorites ? currentFavorites : [],
+    watchlist: currentWatchlist ? currentWatchlist : [],
   },
   getters: {
     getRandomMovies: state => {
@@ -78,9 +64,17 @@ export default new Vuex.Store({
     LOGOUT(state) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      localStorage.removeItem('favorites');
+      localStorage.removeItem('watchlist');
       state.token = '';
       state.user = {};
+      state.favorites = [];
+      state.watchlist = [];
       axios.defaults.headers.common = {};
+    },
+    SAVE_LOCAL(state) {
+      localStorage.setItem('favorites', JSON.stringify(state.favorites));
+      localStorage.setItem('watchlist', JSON.stringify(state.watchlist));
     },
     SET_MOVIES(state, movies) {
       state.movies = movies;
@@ -91,13 +85,16 @@ export default new Vuex.Store({
 
     SET_FAVORITES(state, favorites) {
       state.favorites = favorites;
+      this.commit('SAVE_LOCAL');
     },
     SET_WATCHLIST(state, watchlist) {
       state.watchlist = watchlist;
+      this.commit('SAVE_LOCAL');
     },
     //add to favorites list
     ADD_FAVORITE(state, movie) {
       state.favorites.push(movie);
+      this.commit('SAVE_LOCAL');
     },
     REMOVE_FAVORITE(state, movie) {
       const index = state.favorites.findIndex(
@@ -106,10 +103,12 @@ export default new Vuex.Store({
       if (index !== -1) {
         state.favorites.splice(index, 1);
       }
+      this.commit('SAVE_LOCAL');
     },
     //add to watchlist
     ADD_TO_WATCHLIST(state, movie) {
       state.watchlist.push(movie);
+      this.commit('SAVE_LOCAL');
     },
 
     DELETE_FROM_WATCHLIST(state, movie) {
@@ -119,6 +118,7 @@ export default new Vuex.Store({
       if (index !== -1) {
         state.watchlist.splice(index, 1);
       }
+      this.commit('SAVE_LOCAL');
     },
 
   }
