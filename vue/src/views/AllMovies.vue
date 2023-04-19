@@ -1,10 +1,18 @@
 <template>
   <div>
     <h1 class="page-title">All Movies</h1>
+    <div class="search-wrapper">
+      <input
+        type="search"
+        placeholder="Search Movies..."
+        class="search-bar"
+        v-model="searchText"
+      />
+    </div>
     <div class="container-wrapper">
       <div class="movie-cards-container">
         <movie-card
-          v-for="movie in movies"
+          v-for="movie in filteredMovies"
           :key="movie.id"
           v-bind:movie="movie"
           @show-detail="$emit('show-detail', $event)"
@@ -21,10 +29,20 @@ export default {
   data() {
     return {
       movies: [],
+      searchText: "",
     };
   },
   components: {
     MovieCard,
+  },
+  computed: {
+    filteredMovies() {
+      return this.movies.filter((movie) => {
+        return movie.title
+          .toLowerCase()
+          .includes(this.searchText.toLowerCase());
+      });
+    },
   },
   created() {
     MovieService.getAll().then((response) => {
@@ -48,5 +66,19 @@ export default {
   width: 70vw;
   flex-wrap: wrap;
   justify-content: center;
+}
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.search-bar {
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: 300px;
 }
 </style>

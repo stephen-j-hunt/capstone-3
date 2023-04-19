@@ -315,7 +315,7 @@ insert into movie_genre(movie_id, genre_id) values (65, 6);
 insert into movies (id, title, release_date, poster, overview) values (66, 'All That Breathes', '11/17/2022', 'https://m.media-amazon.com/images/M/MV5BNTJjOTMyOTMtYTlmZC00NDAxLWIwM2EtNDkzNjcyMDljMmQ2XkEyXkFqcGdeQXVyNjQyMTI3MTM@._V1_.jpg', 'Amidst the darkening backdrop of Delhi`s apocalyptic air and escalating violence, two brothers devote their lives to protect one casualty of the turbulent times: the bird known as the Black Kite.');
 insert into movie_genre(movie_id, genre_id) values (66, 6);
 
-insert into movies (id, title, release_date, poster, overview) values (67, 'Harry Potter 20th Anniversary: Return to Hogwarts', '1/1/2022', 'https://m.media-amazon.com/images/M/MV5BNTZkNWEyZTgtYzJlOS00OWNiLTgwZjMtZGU5NTRhNDNjOTRhXkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_.jpg', 'Cast members from all "Harry Potter" films reunite in a retrospective special to celebrate the anniversary of the first film, including interviews and cast conversations.');
+insert into movies (id, title, release_date, poster, overview) values (67, 'Harry Potter 20th Anniversary', '1/1/2022', 'https://m.media-amazon.com/images/M/MV5BNTZkNWEyZTgtYzJlOS00OWNiLTgwZjMtZGU5NTRhNDNjOTRhXkEyXkFqcGdeQXVyNjk1Njg5NTA@._V1_.jpg', 'Cast members from all "Harry Potter" films reunite in a retrospective special to celebrate the anniversary of the first film, including interviews and cast conversations.');
 insert into movie_genre(movie_id, genre_id) values (67, 6);
 insert into movie_genre(movie_id, genre_id) values (67, 8);
 
@@ -600,11 +600,11 @@ insert into movie_genre(movie_id, genre_id) values (174, 4);
 insert into movie_genre(movie_id, genre_id) values (174, 8);
 insert into movie_genre(movie_id, genre_id) values (174, 20);
 
-insert into movies (id, title, release_date, poster, overview) values (175, 'My Year of Dicks', '3/13/2022', 'https://m.media-amazon.com/images/M/MV5BNTdiMzYzYjEtZjYxZS00OWQ0LWEzODktYjBjOGYyODI2NjAxXkEyXkFqcGdeQXVyMzc0Njg0NzM@._V1_.jpg', 'Pam tries very hard to lose her virginity and always searches for "the one". She`s not alone, her best friends are with her.');
-insert into movie_genre(movie_id, genre_id) values (175, 2);
-insert into movie_genre(movie_id, genre_id) values (175, 21);
-insert into movie_genre(movie_id, genre_id) values (175, 4);
-insert into movie_genre(movie_id, genre_id) values (175, 19);
+--insert into movies (id, title, release_date, poster, overview) values (175, 'My Year of Dicks', '3/13/2022', 'https://m.media-amazon.com/images/M/MV5BNTdiMzYzYjEtZjYxZS00OWQ0LWEzODktYjBjOGYyODI2NjAxXkEyXkFqcGdeQXVyMzc0Njg0NzM@._V1_.jpg', 'Pam tries very hard to lose her virginity and always searches for "the one". She`s not alone, her best friends are with her.');
+--insert into movie_genre(movie_id, genre_id) values (175, 2);
+--insert into movie_genre(movie_id, genre_id) values (175, 21);
+--insert into movie_genre(movie_id, genre_id) values (175, 4);
+--insert into movie_genre(movie_id, genre_id) values (175, 19);
 
 --insert into movies (id, title, release_date, poster, overview) values (176, 'Back to the Future: Outatime', '12/9/2022', '', 'Great Scott - Biff`s at it again. He`s stolen Doc Brown`s newest time travel device to sabotage the timeline for his gain. Follow Doc`s clues to find the prototype, track down Biff and save the day before you`re outatime.');
 --insert into movie_genre(movie_id, genre_id) values (176, 21);
