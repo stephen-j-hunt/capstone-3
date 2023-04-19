@@ -1,8 +1,13 @@
 <template>
-  <div>
-    <h1 class="page-title">All Movies</h1>
+  <div class="all-movies">
+    <h1 >All Movies</h1>
+    
+
     <div class="container-wrapper">
-      <div class="movie-cards-container">
+
+    <loader class="load" v-if="isLoading"></loader>
+    
+      <div class="movie-cards-container" v-else>
         <movie-card
           v-for="movie in movies"
           :key="movie.id"
@@ -17,14 +22,23 @@
 <script>
 import MovieCard from "../components/MovieCard.vue";
 import MovieService from "../services/MovieService";
+import Loader from "../components/Loader.vue";
+
 export default {
   data() {
     return {
+      isLoading: true,
       movies: [],
     };
   },
+  mounted() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  },
   components: {
     MovieCard,
+    Loader,
   },
   created() {
     MovieService.getAll().then((response) => {
@@ -35,7 +49,13 @@ export default {
 </script>
 
 <style scoped>
-.page-title {
+  #load {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+  }
+h1 {
   font-size: 50px;
   text-align: center;
 }

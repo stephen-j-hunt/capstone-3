@@ -1,5 +1,6 @@
 <template>
   <div class="genre-menu">
+    
     <label for="genres">Select genres:</label>
 
     <table class="genre-table">

@@ -72,6 +72,11 @@ Navbar {
   /* background: rgb(211, 209, 218);
   background: radial-gradient(circle, rgb(191, 191, 192) 5%, rgb(0, 0, 0) 70%); */
 }
+
+
+/* Must target the styling for the loading screen in here?? */
+
+
 </style>
 
    

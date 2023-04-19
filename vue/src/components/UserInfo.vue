@@ -1,9 +1,9 @@
 <template>
   <div>
     <h1>{{ getUser.username }}'s Profile</h1>
-    <h3>
+    <!-- <h3>
       Please select the genres you enjoy to enhance your browsing experience!
-    </h3>
+    </h3> -->
   </div>
 </template>
 
