@@ -2,6 +2,7 @@
   <div class="header-container">
     <img src="../assets/movieclapboard.png" alt="logo" />
     <div class="title">Movie Elevator</div>
+    <div class="version">v.0.5</div>
   </div>
 </template>
 
@@ -37,6 +38,12 @@ img {
   font-size: 6rem;
   text-align: center;
   margin-top: 1.2rem;
+}
+.version {
+  font-size: 0.8rem;
+  color: #ffc107;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
 }
 </style>
 

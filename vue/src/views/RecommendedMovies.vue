@@ -4,7 +4,7 @@
 
     <div class="movie-list-container">
       <movie-list
-        v-for="genreId in $store.state.user.preferences"
+        v-for="genreId in sortedGenres"
         :key="genreId"
         v-bind:genreId="genreId"
         @show-detail="showMovieDetail"
@@ -22,6 +22,12 @@ export default {
   components: {
     MovieList,
   },
+  computed: {
+  sortedGenres() {
+    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+    return this.$store.state.user.preferences.sort();
+  },
+},
   data() {
     return {
       dynamicComponent: MovieCardDetail,
