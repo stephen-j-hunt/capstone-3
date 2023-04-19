@@ -1,12 +1,8 @@
 <template>
-  <!-- <header> -->
   <div class="header-container">
     <img src="../assets/movieclapboard.png" alt="logo" />
-    <!-- <router-link to="/" class="logo-link"> -->
-    <!-- </router-link> -->
     <div class="title">Movie Elevator</div>
   </div>
-  <!-- </header> -->
 </template>
 
 export default {
@@ -16,11 +12,6 @@ export default {
 
 <style scoped>
 @import url("https://fonts.cdnfonts.com/css/cinema-st");
-/* header {
-  align-items: center;
-  background-color: #d80000;
-  width: 100%;
-} */
 
 .header-container {
   /* position: relative; */

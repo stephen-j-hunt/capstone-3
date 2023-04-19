@@ -42,7 +42,4 @@ export default {
 h1 {
   text-align: center;
 }
-.genre {
-  text-align: center;
-}
 </style>
