@@ -1,7 +1,7 @@
 <template>
   <div class="recommended-movies">
     <h1>Recommended Movies For You</h1>
-    <loader v-if="isLoading"></loader>
+    <loader class="loader" v-if="isLoading"></loader>
 
     <slot class="movie-list-container" v-else>
 
@@ -57,5 +57,10 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
+}
+.recommended-movies{
+  display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div>
+    <div class="all-movies"> 
     <h1>All Movies</h1>
     <loader id="load" v-if="isLoading"></loader>
-
-    <div class="all-movies" v-else> 
+  <div class="data" v-else>
     <div class="search-wrapper">
       <input
         type="search"
@@ -11,11 +11,9 @@
         class="search-bar"
         v-model="searchText"
       />
-      
     </div>
-    <div class="container-wrapper">
-
     
+    <div class="container-wrapper">
       <div class="movie-cards-container" >
         <movie-card
           v-for="movie in filteredMovies"
@@ -25,6 +23,7 @@
         />
       </div>
     </div>
+  </div>
   </div>
   </div>
 </template>
@@ -69,12 +68,11 @@ export default {
 </script>
 
 <style scoped>
-  /* #load {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    
-  } */
+.all-movies {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 h1 {
   font-size: 50px;
   text-align: center;
@@ -82,6 +80,7 @@ h1 {
 .container-wrapper {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 .movie-cards-container {
   display: flex;

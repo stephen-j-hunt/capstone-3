@@ -38,11 +38,7 @@ export default {
 </script>
 
 <style scoped>
-#load {
-    display: flex;
-    flex-direction: column;
-    text-align: center; 
-  }
+
 .my-account {
   display: flex;
   justify-content: center;
