@@ -51,11 +51,8 @@ export default {
 .movie-cards {
   display: flex;
   width: 95vw;
-  /* justify-content: center; */
   flex-wrap: wrap;
   margin: 0px 50px;
-  
- 
 }
 
 h2 {
@@ -64,7 +61,6 @@ h2 {
   font-size: 25px;
   color: gainsboro;
   text-transform: uppercase;
-  
 }
 </style>
 

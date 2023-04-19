@@ -22,13 +22,15 @@ export default {
       return this.$store.state.watchlist;
     },
   },
-
 };
 </script>
 
 <style scoped>
 .movies {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  width: 95vw;
+  margin: 0px 25px;
 }
 </style>

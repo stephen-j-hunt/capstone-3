@@ -22,18 +22,15 @@ export default {
       return this.$store.state.favorites;
     },
   },
-  // sets the favorites list to the store and gets it from the database when page is created
-  // created() {
-  //   MovieService.getFavorites(this.$store.state.user).then((response) => {
-  //     this.$store.commit("SET_FAVORITES", response.data);
-  //   });
-  // },
 };
 </script>
 
 <style scoped>
 .movies {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  flex-wrap: wrap;
+  width: 95vw;
+  margin: 0px 25px;
 }
 </style>

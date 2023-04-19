@@ -52,14 +52,14 @@ export default {
       }
     },
     isOnWatchlist() {
-      if(
+      if (
         this.$store.state.watchlist.find((movie) => movie.id == this.movie.id)
       ) {
         return true;
-      }else {
+      } else {
         return false;
       }
-    }
+    },
   },
   methods: {
     navigateToDetail() {
@@ -131,8 +131,13 @@ div.card {
   background-color: wheat;
   color: #333;
 }
+div.card:hover {
+  background-color: rgb(88, 86, 86);
+}
+
 .card-title {
   display: block;
+  color: white;
 }
 h4 {
   margin: 10px;
@@ -144,5 +149,13 @@ h4 {
 .poster {
   height: 150px;
   width: 100px;
+}
+.awesome-btn {
+  font-size: 25px;
+  color: #ffc107;
+}
+.awesome-btn:hover {
+  cursor: pointer;
+  font-size: 30px;
 }
 </style>
