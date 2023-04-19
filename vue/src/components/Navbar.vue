@@ -17,7 +17,7 @@
         v-bind:to="{ name: 'my-account' }"
         v-if="$store.state.token !== ''"
         class="nav-link"
-        >My Account</router-link
+        >Account</router-link
       >
       <router-link
         v-bind:to="{ name: 'my-movies' }"

@@ -50,13 +50,21 @@ export default {
 <style scoped>
 .movie-cards {
   display: flex;
-  width: 100%;
-  justify-content: center;
+  width: 95vw;
+  /* justify-content: center; */
   flex-wrap: wrap;
+  margin: 0px 50px;
+  
+ 
 }
 
 h2 {
-  text-align: center;
+  text-align: left;
+  margin-left: 70px;
+  font-size: 25px;
+  color: gainsboro;
+  text-transform: uppercase;
+  
 }
 </style>
 

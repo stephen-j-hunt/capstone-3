@@ -52,14 +52,14 @@ export default {
       }
     },
     isOnWatchlist() {
-      if (
+      if(
         this.$store.state.watchlist.find((movie) => movie.id == this.movie.id)
       ) {
         return true;
-      } else {
+      }else {
         return false;
       }
-    },
+    }
   },
   methods: {
     navigateToDetail() {
@@ -100,7 +100,7 @@ export default {
 
 <style scoped>
 div.card {
-  border: 1px solid #ffc107;
+  border: 3px solid #ffc107;
   border-radius: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -114,9 +114,6 @@ div.card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-div.card:hover {
-  background-color: rgb(88, 86, 86);
 }
 .card-btns {
   display: flex;
@@ -136,7 +133,6 @@ div.card:hover {
 }
 .card-title {
   display: block;
-  color: white;
 }
 h4 {
   margin: 10px;
@@ -148,13 +144,5 @@ h4 {
 .poster {
   height: 150px;
   width: 100px;
-}
-.awesome-btn {
-  font-size: 25px;
-  color: #ffc107;
-}
-.awesome-btn:hover {
-  cursor: pointer;
-  font-size: 30px;
 }
 </style>

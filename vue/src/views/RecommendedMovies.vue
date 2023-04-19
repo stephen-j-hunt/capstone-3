@@ -1,6 +1,6 @@
 <template>
   <div class="recommended-movies">
-    <h1>Recommended Movies For You</h1>
+    <h1>We found these movies for your selected genres</h1>
     <loader class="loader" v-if="isLoading"></loader>
 
     <slot class="movie-list-container" v-else>
@@ -65,5 +65,7 @@ h1 {
   display: flex;
     flex-direction: column;
     text-align: center;
+    overflow: hidden;
 }
+
 </style>
