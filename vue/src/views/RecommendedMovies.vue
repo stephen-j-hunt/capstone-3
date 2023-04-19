@@ -29,8 +29,8 @@ export default {
   sortedGenres() {
     // eslint-disable-next-line vue/no-side-effects-in-computed-properties
     return this.$store.state.user.preferences.sort();
+    },
   },
-},
   data() {
     return {
       isLoading: true,
@@ -45,11 +45,6 @@ export default {
     }, 2000);
   },
 
-  computed: {
-  sortedGenres() {
-    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-    return this.$store.state.user.preferences.sort();
-  },
 
   methods: {
     showMovieDetail(movie) {
@@ -57,7 +52,8 @@ export default {
       this.$modal.show("movie-card-detail");
     },
   },
-}}
+    
+}
 
 </script>
 
