@@ -4,9 +4,8 @@
     <loader v-if="isLoading"></loader>
 
     <slot class="movie-list-container" v-else>
-
       <movie-list
-        v-for="genreId in $store.state.user.preferences"
+        v-for="genreId in sortedGenres"
         :key="genreId"
         v-bind:genreId="genreId"
         @show-detail="showMovieDetail"
@@ -33,10 +32,17 @@ export default {
       selectedMovie: null,
     };
   },
+  
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
     }, 2000);
+  },
+
+  computed: {
+  sortedGenres() {
+    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+    return this.$store.state.user.preferences.sort();
   },
 
   methods: {
@@ -45,7 +51,8 @@ export default {
       this.$modal.show("movie-card-detail");
     },
   },
-};
+}}
+
 </script>
 
 <style scoped>
